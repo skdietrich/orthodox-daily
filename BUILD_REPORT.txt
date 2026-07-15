@@ -1,5 +1,5 @@
 ORTHODOX DAILY — BUILD VERIFICATION REPORT
-Build: 1.1.0 visual-library rebuild
+Build: 1.2.0
 Data window: 2026-01-01 through 2030-12-31
 
 PASSED
@@ -10,31 +10,32 @@ PASSED
 - 1,826 civil-day records present across 2026–2030
 - Pascha dates match the checked project table
 - 115 curated principal fixed-date entries
-- 71 martyr memorial records
+- 70 martyr memorial records
+- 70 expanded martyr profiles
+- Every martyr profile includes a commemoration date, life/martyrdom dating, place, and concise biography
+- Longest “About the Martyr” text: 115 characters
+- Maximum permitted “About the Martyr” text: 149 characters
 - 41 historical spotlights
 - 14 prayers
 - 10 daily practices
-- 18 genuine local JPEG content images
-- Every content image is 1600x900 pixels
-- Content-image library totals 9,153,266 bytes
-- Every content image exceeds the verifier's 250,000-byte minimum
-- Calendar-driven hero image rotation is wired to local image metadata
-- Martyr archive and historical timeline render local image thumbnails
-- 61 JavaScript-to-HTML element bindings verified
-- Service worker references 40 valid offline resources, including all 18 content images
+- 18 full-size local content images totaling 9,153,266 bytes
+- Service worker references 41 valid offline resources
 - Runtime files contain no external HTTP dependencies
+- 62 JavaScript-to-HTML bindings verified
 - JavaScript syntax checks passed with Node.js
-- All 40 offline resources returned HTTP 200 through a local static server
+- Local static HTTP requests returned successfully
+- Responsive browser tests passed at 375x667, 430x932, 412x915, 820x1180, 1440x900, 1920x1080, and 3840x2160
+- No horizontal page overflow detected on Today or Martyrs views at any tested viewport
 - No individual project file approaches the 23 MiB limit
 
-Largest project file at build time:
-assets/art/month-11-archangels.jpg — 564,316 bytes (approximately 0.54 MiB)
+Largest project file:
+assets/art/month-11-archangels.jpg — 564,316 bytes
 
-Project folder size at build time:
-approximately 9.8 MiB uncompressed
+File-size ceiling:
+24,117,248 bytes (23 MiB)
 
-File-size ceiling enforced by verifier:
-24,117,248 bytes (23 MiB) per file
-
-Open ART_PREVIEW.jpg for a contact sheet of all included artwork.
-Run `python tools/verify_project.py` after any content or code changes.
+NOTES
+- Approximate historical dates are marked with “c.”
+- Entries with sparse surviving traditions use cautious language rather than invented certainty
+- Jurisdictional calendars may list additional martyrs and commemorations
+- Run `python tools/verify_project.py` after any content or code changes

@@ -2,348 +2,191 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#341313">
-  <meta name="description" content="An offline Orthodox daily prayer, saints, martyrs, history, fasting, and calendar app through 2030.">
-  <title>Orthodox Daily — Prayer, Saints & Memory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5c1b2e">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Offline Orthodox prayer, saints, martyrs, history and liturgical calendar through 2030.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Orthodox Daily">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon-192.png">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="stylesheet" href="css/styles.css">
+  <title>Orthodox Daily</title>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
 
   <header class="site-header">
-    <div class="brand">
-      <img src="assets/cross.svg" alt="" width="52" height="64">
+    <div class="brand" aria-label="Orthodox Daily">
+      <img src="assets/cross.svg" alt="" width="42" height="56">
       <div>
-        <p class="eyebrow">Prayer • Memory • Witness</p>
+        <p class="eyebrow">Prayer · Saints · Memory</p>
         <h1>Orthodox Daily</h1>
       </div>
     </div>
     <div class="header-actions">
       <div class="live-clock" aria-live="polite">
-        <strong id="liveTime">--:--:--</strong>
-        <span id="liveDate">Loading date…</span>
+        <span id="liveDate"></span>
+        <strong id="liveTime"></strong>
       </div>
-      <button class="button quiet hidden" id="installButton" type="button">Install</button>
-      <button class="icon-button" id="settingsButton" type="button" aria-label="Open settings" aria-controls="settingsDrawer">⚙</button>
+      <button id="installButton" class="button quiet hidden" type="button">Install</button>
+      <button id="settingsButton" class="icon-button" type="button" aria-label="Open settings">⚙</button>
     </div>
   </header>
 
-  <nav class="tabbar" aria-label="Primary">
-    <button class="tab active" data-view="today">Today</button>
-    <button class="tab" data-view="calendar">Calendar</button>
-    <button class="tab" data-view="prayers">Prayers</button>
-    <button class="tab" data-view="martyrs">Martyrs</button>
-    <button class="tab" data-view="history">History</button>
-    <button class="tab" data-view="tools">Tools</button>
-    <button class="tab" data-view="about">About</button>
+  <nav class="tabbar" aria-label="Primary navigation">
+    <button class="tab active" data-view="today" type="button">Today</button>
+    <button class="tab" data-view="calendar" type="button">Calendar</button>
+    <button class="tab" data-view="prayers" type="button">Prayers</button>
+    <button class="tab" data-view="martyrs" type="button">Martyrs</button>
+    <button class="tab" data-view="history" type="button">History</button>
+    <button class="tab" data-view="tools" type="button">Tools</button>
+    <button class="tab" data-view="about" type="button">About</button>
   </nav>
 
-  <main id="main">
-    <section class="view active" id="view-today" data-view-panel="today">
-      <div class="hero">
+  <main id="mainContent">
+    <section class="view active" data-view-panel="today" aria-labelledby="heroDate">
+      <div id="rangeNotice" class="notice hidden"></div>
+      <article class="hero">
         <div class="hero-content">
-          <p class="eyebrow" id="calendarModeLabel">Revised Calendar</p>
-          <h2 id="heroDate">Today</h2>
-          <p id="heroFeast" class="hero-feast">Loading the day’s commemorations…</p>
-          <div class="date-controls" aria-label="Choose date">
-            <button class="icon-button" id="previousDay" type="button" aria-label="Previous day">←</button>
-            <input id="datePicker" type="date" min="2026-01-01" max="2030-12-31">
-            <button class="icon-button" id="nextDay" type="button" aria-label="Next day">→</button>
-            <button class="button quiet" id="todayButton" type="button">Today</button>
+          <p id="calendarModeLabel" class="eyebrow">Orthodox day</p>
+          <h2 id="heroDate">Loading…</h2>
+          <p id="heroFeast" class="hero-feast"></p>
+          <div class="date-controls">
+            <button id="previousDay" class="button quiet" type="button">← Previous</button>
+            <input id="datePicker" type="date" min="2026-01-01" max="2030-12-31" aria-label="Choose date">
+            <button id="todayButton" class="button" type="button">Today</button>
+            <button id="nextDay" class="button quiet" type="button">Next →</button>
           </div>
+          <p><span id="entryStatus" class="badge"></span></p>
         </div>
         <figure class="hero-art">
-          <img id="dailyHeroImage" src="assets/art/month-01-theophany.jpg" alt="Original Orthodox devotional artwork">
-          <figcaption><strong id="dailyHeroTitle">Daily visual meditation</strong><span id="dailyHeroCaption">Original local artwork</span></figcaption>
+          <img id="dailyHeroImage" src="assets/art/month-01-theophany.jpg" alt="Orthodox devotional artwork">
+          <figcaption><strong id="dailyHeroTitle">Orthodox Daily</strong><span id="dailyHeroCaption"></span></figcaption>
         </figure>
-      </div>
-
-      <div class="notice hidden" id="rangeNotice"></div>
+      </article>
 
       <div class="dashboard-grid">
         <article class="card span-2">
-          <div class="card-heading">
-            <div>
-              <p class="eyebrow">Commemorations</p>
-              <h3>Saints & Feasts</h3>
-            </div>
-            <span class="badge" id="entryStatus">Local data</span>
-          </div>
+          <div class="card-heading"><div><p class="eyebrow">Commemorations</p><h3>Saints of the Day</h3></div><span class="symbol">☦</span></div>
           <div id="saintsContent" class="prose"></div>
         </article>
 
         <article class="card">
-          <div class="card-heading">
-            <div>
-              <p class="eyebrow">Witness</p>
-              <h3>Martyrs</h3>
-            </div>
-            <span class="symbol">☦</span>
-          </div>
-          <img id="todayMartyrImage" class="card-image" src="assets/art/witness-01-catacomb.jpg" alt="Original devotional artwork honoring the martyrs">
+          <img id="todayMartyrImage" class="card-image" src="assets/art/witness-01-catacomb.jpg" alt="Original artwork honoring Christian martyrs">
+          <div class="card-heading"><div><p class="eyebrow">Cloud of witnesses</p><h3>Martyrs</h3></div><span class="symbol">✚</span></div>
           <div id="martyrsContent" class="prose"></div>
         </article>
 
         <article class="card">
-          <div class="card-heading">
-            <div>
-              <p class="eyebrow">On This Date</p>
-              <h3>Orthodox History</h3>
-            </div>
-            <span class="symbol">⌛</span>
-          </div>
-          <img id="todayHistoryImage" class="card-image" src="assets/art/history-02-manuscript.jpg" alt="Original historical illustration of an illuminated manuscript">
+          <img id="todayHistoryImage" class="card-image" src="assets/art/history-01-council.jpg" alt="Original Orthodox historical artwork">
+          <div class="card-heading"><div><p class="eyebrow">Historical memory</p><h3>On This Date</h3></div><span class="symbol">⌛</span></div>
           <div id="historyContent" class="prose"></div>
         </article>
 
-        <article class="card">
-          <div class="card-heading">
-            <div>
-              <p class="eyebrow">Rule of the Day</p>
-              <h3>Fasting Guidance</h3>
-            </div>
-            <span class="symbol">◌</span>
-          </div>
-          <div id="fastingContent" class="prose"></div>
-        </article>
+        <article class="card"><div class="card-heading"><div><p class="eyebrow">Discipline</p><h3>Fasting Guidance</h3></div><span class="symbol">◐</span></div><div id="fastingContent" class="prose"></div></article>
+        <article class="card"><div class="card-heading"><div><p class="eyebrow">Paschal cycle</p><h3>Pascha</h3></div><span class="symbol">☼</span></div><div id="paschaContent" class="prose"></div></article>
+        <article class="card"><div class="card-heading"><div><p class="eyebrow">Created light</p><h3>Sun and Moon</h3></div><span class="symbol">◒</span></div><div id="astronomyContent" class="prose"></div></article>
+        <article class="card"><div class="card-heading"><div><p class="eyebrow">Daily practice</p><h3>One Faithful Step</h3></div><span class="symbol">✦</span></div><div id="practiceContent" class="prose"></div></article>
 
-        <article class="card">
+        <article class="card prayer-card span-2">
           <div class="card-heading">
-            <div>
-              <p class="eyebrow">The Paschal Cycle</p>
-              <h3>Journey to Pascha</h3>
-            </div>
-            <span class="symbol">✦</span>
-          </div>
-          <div id="paschaContent" class="prose"></div>
-        </article>
-
-        <article class="card">
-          <div class="card-heading">
-            <div>
-              <p class="eyebrow">Creation</p>
-              <h3>Light & Moon</h3>
-            </div>
-            <span class="symbol">☾</span>
-          </div>
-          <div id="astronomyContent" class="prose"></div>
-        </article>
-
-        <article class="card">
-          <div class="card-heading">
-            <div>
-              <p class="eyebrow">Daily Practice</p>
-              <h3>A Small Rule</h3>
-            </div>
-            <span class="symbol">✥</span>
-          </div>
-          <div id="practiceContent" class="prose"></div>
-        </article>
-
-        <article class="card span-2 prayer-card">
-          <div class="card-heading">
-            <div>
-              <p class="eyebrow">Prayer for the Day</p>
-              <h3 id="dailyPrayerTitle">Prayer</h3>
-            </div>
-            <button class="icon-button" id="favoriteDailyPrayer" type="button" aria-label="Favorite this prayer">☆</button>
+            <div><p class="eyebrow">Prayer for this day</p><h3 id="dailyPrayerTitle">Daily Prayer</h3></div>
+            <button id="favoriteDailyPrayer" class="favorite-button" type="button" aria-label="Favorite this prayer">☆</button>
           </div>
           <div id="dailyPrayerText" class="prayer-text"></div>
         </article>
       </div>
     </section>
 
-    <section class="view" id="view-calendar" data-view-panel="calendar">
-      <div class="section-intro">
-        <p class="eyebrow">2026–2030</p>
-        <h2>Liturgical Calendar</h2>
-        <p>Browse the locally stored calendar. Movable feasts are precomputed for every supported year.</p>
-      </div>
+    <section class="view" data-view-panel="calendar" aria-labelledby="calendarHeading">
+      <div class="section-intro"><p class="eyebrow">Local calendar · 2026–2030</p><h2 id="calendarHeading">Liturgical Calendar</h2><p>Select any supported date to open its local feast, fasting, prayer, martyr, and historical records.</p></div>
       <div class="calendar-toolbar">
-        <button class="icon-button" id="previousMonth" type="button" aria-label="Previous month">←</button>
-        <h3 id="calendarMonthLabel">Month</h3>
-        <button class="icon-button" id="nextMonth" type="button" aria-label="Next month">→</button>
+        <button id="previousMonth" class="icon-button" type="button" aria-label="Previous month">←</button>
+        <h3 id="calendarMonthLabel"></h3>
+        <button id="nextMonth" class="icon-button" type="button" aria-label="Next month">→</button>
       </div>
-      <div class="calendar-weekdays" aria-hidden="true">
-        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
-      </div>
+      <div class="calendar-weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
       <div id="calendarGrid" class="calendar-grid"></div>
-      <p class="fine-print">Commemoration lists vary among Orthodox jurisdictions. Curated principal entries are marked; other dates retain a jurisdictional notice rather than inventing a list.</p>
     </section>
 
-    <section class="view" id="view-prayers" data-view-panel="prayers">
-      <div class="section-intro">
-        <p class="eyebrow">A Portable Prayer Book</p>
-        <h2>Prayers</h2>
-        <p>Traditional core prayers and clearly labeled original devotional prayers, available without a connection.</p>
-      </div>
+    <section class="view" data-view-panel="prayers" aria-labelledby="prayersHeading">
+      <div class="section-intro"><p class="eyebrow">Prayer book</p><h2 id="prayersHeading">Prayers for Daily Life</h2><p>Search the local prayer library, filter it by category, and save favorites on this device.</p></div>
       <div class="filter-row">
         <input id="prayerSearch" type="search" placeholder="Search prayers…" aria-label="Search prayers">
-        <select id="prayerCategory" aria-label="Filter prayer category">
-          <option value="all">All categories</option>
-        </select>
+        <select id="prayerCategory" aria-label="Prayer category"></select>
         <label class="check-label"><input id="favoritesOnly" type="checkbox"> Favorites only</label>
       </div>
       <div id="prayerLibrary" class="library-grid"></div>
     </section>
 
-    <section class="view" id="view-martyrs" data-view-panel="martyrs">
+    <section class="view" data-view-panel="martyrs" aria-labelledby="martyrsHeading">
       <div class="section-intro">
-        <p class="eyebrow">The Seed of the Church</p>
-        <h2>Martyr Archive</h2>
-        <p>Search the locally curated memorial index by name or calendar date.</p>
+        <p class="eyebrow">The cloud of witnesses</p>
+        <h2 id="martyrsHeading">Martyrs by Date</h2>
+        <p>Each profile includes its commemoration date, responsible historical dating, and a concise biography under 150 characters.</p>
       </div>
-      <div id="martyrVisuals" class="visual-strip" aria-label="Martyr visual meditations"></div>
-      <div class="filter-row">
-        <input id="martyrSearch" type="search" placeholder="Search martyrs…" aria-label="Search martyrs">
+      <div id="martyrVisuals" class="visual-strip"></div>
+      <div class="filter-row martyr-toolbar">
+        <input id="martyrSearch" type="search" placeholder="Search name, date, place, or century…" aria-label="Search martyrs">
+        <span id="martyrCount" class="badge" aria-live="polite"></span>
       </div>
-      <div id="martyrArchive" class="archive-list"></div>
+      <div id="martyrArchive" class="archive-list martyr-archive"></div>
     </section>
 
-    <section class="view" id="view-history" data-view-panel="history">
-      <div class="section-intro">
-        <p class="eyebrow">On This Date</p>
-        <h2>Historical Daily</h2>
-        <p>A local collection of concise historical spotlights connected to feasts, councils, witnesses, worship, and the life of the Church.</p>
-      </div>
-      <div id="historyVisuals" class="visual-strip history-visuals" aria-label="Orthodox history visual archive"></div>
-      <div class="filter-row">
-        <input id="historySearch" type="search" placeholder="Search historical entries…" aria-label="Search history">
-      </div>
+    <section class="view" data-view-panel="history" aria-labelledby="historyHeading">
+      <div class="section-intro"><p class="eyebrow">Chronicle</p><h2 id="historyHeading">Orthodox History on This Date</h2><p>Selected historical notes stored locally in the application.</p></div>
+      <div id="historyVisuals" class="visual-strip history-visuals"></div>
+      <div class="filter-row"><input id="historySearch" type="search" placeholder="Search historical entries…" aria-label="Search historical entries"></div>
       <div id="historyTimeline" class="timeline"></div>
     </section>
 
-    <section class="view" id="view-tools" data-view-panel="tools">
-      <div class="section-intro">
-        <p class="eyebrow">Stillness & Memory</p>
-        <h2>Prayer Tools</h2>
-        <p>Nothing leaves this device. Timer, settings, favorites, and journal entries remain in your browser unless you export them.</p>
-      </div>
+    <section class="view" data-view-panel="tools" aria-labelledby="toolsHeading">
+      <div class="section-intro"><p class="eyebrow">Private and local</p><h2 id="toolsHeading">Prayer Tools</h2><p>The timer, favorites, settings, and journal remain on this device unless you export them.</p></div>
       <div class="tools-grid">
         <article class="card timer-card">
-          <p class="eyebrow">Candle Timer</p>
-          <h3>Keep a Little Silence</h3>
-          <img src="assets/candle.svg" alt="" class="candle-image">
-          <div id="timerDisplay" class="timer-display">05:00</div>
+          <img class="candle-image" src="assets/candle.svg" alt="Stylized candle">
+          <p class="eyebrow">Stillness timer</p><div id="timerDisplay" class="timer-display">05:00</div>
           <div class="timer-presets">
-            <button class="chip active" data-minutes="5">5 min</button>
-            <button class="chip" data-minutes="10">10 min</button>
-            <button class="chip" data-minutes="15">15 min</button>
-            <button class="chip" data-minutes="30">30 min</button>
+            <button class="chip" data-minutes="1" type="button">1 min</button><button class="chip" data-minutes="3" type="button">3 min</button><button class="chip active" data-minutes="5" type="button">5 min</button><button class="chip" data-minutes="10" type="button">10 min</button>
           </div>
-          <div class="button-row">
-            <button class="button" id="timerStart" type="button">Begin</button>
-            <button class="button quiet" id="timerReset" type="button">Reset</button>
-          </div>
+          <div class="button-row"><button id="timerStart" class="button" type="button">Begin</button><button id="timerReset" class="button quiet" type="button">Reset</button></div>
         </article>
-
         <article class="card journal-card">
-          <p class="eyebrow">Private Journal</p>
-          <h3 id="journalDateLabel">Reflection</h3>
-          <textarea id="journalText" rows="12" placeholder="Write a prayer intention, a name to remember, or a quiet reflection…"></textarea>
-          <div class="button-row">
-            <button class="button" id="saveJournal" type="button">Save locally</button>
-            <button class="button quiet danger" id="deleteJournal" type="button">Delete entry</button>
-          </div>
-          <p class="fine-print">Stored only in this browser’s local storage. Clearing site data will erase it unless exported.</p>
-        </article>
-
-        <article class="card span-2">
-          <p class="eyebrow">Portability</p>
-          <h3>Export or Restore Your Local Data</h3>
-          <p>Export favorites, journal entries, and preferences as a small JSON file.</p>
-          <div class="button-row">
-            <button class="button" id="exportData" type="button">Export local data</button>
-            <label class="button quiet file-button">Import data<input id="importData" type="file" accept="application/json"></label>
-          </div>
+          <p class="eyebrow">Private journal</p><h3 id="journalDateLabel">Reflection</h3>
+          <textarea id="journalText" rows="12" placeholder="Stored only in this browser on this device…"></textarea>
+          <div class="button-row"><button id="saveJournal" class="button" type="button">Save locally</button><button id="deleteJournal" class="button quiet danger" type="button">Delete entry</button></div>
+          <div class="button-row"><button id="exportData" class="button quiet" type="button">Export my data</button><label class="button quiet file-button">Import data<input id="importData" type="file" accept="application/json"></label></div>
         </article>
       </div>
     </section>
 
-    <section class="view" id="view-about" data-view-panel="about">
-      <div class="section-intro">
-        <p class="eyebrow">Local, Quiet, Durable</p>
-        <h2>About Orthodox Daily</h2>
-      </div>
+    <section class="view" data-view-panel="about" aria-labelledby="aboutHeading">
+      <div class="section-intro"><p class="eyebrow">About this app</p><h2 id="aboutHeading">Orthodox Daily</h2><p>A static, offline-first devotional and historical reference designed for GitHub Pages.</p></div>
       <div class="about-grid">
-        <article class="card">
-          <h3>Designed for GitHub Pages</h3>
-          <p>This is a static progressive web app. It has no server, account, tracking pixel, analytics service, advertising code, or cloud database.</p>
-        </article>
-        <article class="card">
-          <h3>Offline Through 2030</h3>
-          <p>Calendar, prayer, feast, fasting, martyr, and historical data are packaged with the app. The service worker stores the app for offline use after the first visit.</p>
-        </article>
-        <article class="card">
-          <h3>Automatic App Updates</h3>
-          <p>When a new version is published to GitHub Pages, the service worker checks for changed files and refreshes the installed app. The content itself never depends on a remote feed.</p>
-        </article>
-        <article class="card">
-          <h3>Responsible Scope</h3>
-          <p>This edition includes curated principal commemorations rather than claiming to be a complete jurisdiction-specific synaxarion. Fasting guidance is broad and never replaces the direction of one’s priest or physician.</p>
-        </article>
-        <article class="card">
-          <h3>Local Visual Library</h3>
-          <p>This edition includes eighteen full-size original JPEG artworks stored in the repository. They rotate with the calendar and appear throughout the martyr and history archives. They are devotional illustrations, not canonical icons or documentary photographs.</p>
-        </article>
-        <article class="card">
-          <h3>No Remote Image Dependency</h3>
-          <p>Every content image is cached for offline use. The app does not pull pictures from social media, image hosts, or third-party APIs.</p>
-        </article>
-        <article class="card span-2">
-          <h3>Sources & Editorial Method</h3>
-          <p>The calendar structure and Paschal dates were checked against official Orthodox references. Historical summaries are concise editorial overviews. Traditional prayers are identified in the local prayer data; original prayers are labeled devotional.</p>
-          <p>Version <span id="appVersion">1.1.0</span> • Data window: January 1, 2026–December 31, 2030.</p>
-        </article>
+        <article class="card span-2 prose"><h3>Local by design</h3><p>Calendar, prayer, martyr, history, fasting, and image data are stored in this repository. The app has no required cloud database, login, analytics, or advertising.</p></article>
+        <article class="card prose"><h3>Important limits</h3><p>Orthodox jurisdictions differ in calendar use, local saints, fasting practice, and lectionary details. Follow your priest and official parish calendar.</p></article>
+        <article class="card prose"><h3>Sources</h3><p>Calendar and biographical summaries are concise educational references. Approximate dates are marked, and uncertain traditions are described cautiously. Full notes are in the repository.</p></article>
+        <article class="card prose"><h3>Updates</h3><p>The service worker checks for newer published files. A refreshed GitHub Pages deployment replaces the offline cache automatically.</p><button id="checkUpdate" class="button quiet" type="button">Check for update</button></article>
+        <article class="card prose"><h3>Build</h3><p>Version <strong id="appVersion">—</strong></p><p>Local data window: January 1, 2026–December 31, 2030.</p></article>
       </div>
     </section>
   </main>
 
-  <aside class="settings-drawer" id="settingsDrawer" aria-hidden="true">
-    <div class="drawer-heading">
-      <h2>Settings</h2>
-      <button class="icon-button" id="closeSettings" type="button" aria-label="Close settings">×</button>
-    </div>
-    <label>
-      Calendar display
-      <select id="calendarMode">
-        <option value="revised">Revised / New Calendar</option>
-        <option value="old">Old / Julian Calendar</option>
-      </select>
-    </label>
-    <label>
-      Location for light calculations
-      <select id="locationSelect">
-        <option value="chicago">Chicago</option>
-        <option value="new-york">New York</option>
-        <option value="athens">Athens</option>
-        <option value="constantinople">Constantinople / Istanbul</option>
-        <option value="jerusalem">Jerusalem</option>
-        <option value="mount-athos">Mount Athos</option>
-      </select>
-    </label>
-    <label class="check-label"><input id="use24Hour" type="checkbox"> Use 24-hour time</label>
-    <label class="check-label"><input id="reduceMotion" type="checkbox"> Reduce motion</label>
-    <button class="button quiet" id="checkUpdate" type="button">Check for app update</button>
-    <p class="fine-print">Old Calendar fixed commemorations are displayed 13 civil days later for this 2026–2030 date range. Movable Paschal observances remain on their computed civil dates.</p>
+  <aside id="settingsDrawer" class="settings-drawer" aria-hidden="true" aria-labelledby="settingsHeading">
+    <div class="drawer-heading"><h2 id="settingsHeading">Settings</h2><button id="closeSettings" class="icon-button" type="button" aria-label="Close settings">×</button></div>
+    <label>Calendar display<select id="calendarMode"><option value="revised">Revised / New Calendar</option><option value="old">Julian / Old Calendar</option></select></label>
+    <label>Location for daylight<select id="locationSelect"><option value="chicago">Chicago</option><option value="athens">Athens</option><option value="constantinople">Constantinople / Istanbul</option><option value="jerusalem">Jerusalem</option><option value="athos">Mount Athos</option><option value="newyork">New York</option></select></label>
+    <label class="check-label"><input id="use24Hour" type="checkbox"> Use 24-hour clock</label>
+    <label class="check-label"><input id="reduceMotion" type="checkbox"> Reduce animation</label>
   </aside>
-  <div class="scrim hidden" id="scrim"></div>
-
-  <footer>
-    <img src="assets/cross.svg" alt="" width="28" height="36">
-    <p>Orthodox Daily • Local-first prayer and historical calendar • 2026–2030</p>
-  </footer>
-
+  <div id="scrim" class="scrim hidden"></div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <noscript>
-    <div class="noscript">Orthodox Daily requires JavaScript to read its local calendar files.</div>
-  </noscript>
-
+  <footer><span>☦ Orthodox Daily</span><span>Local data through 2030 · Offline-first</span></footer>
+  <noscript><div class="noscript">Orthodox Daily requires JavaScript for its local calendar and archive.</div></noscript>
   <script src="js/astronomy.js"></script>
   <script src="js/app.js"></script>
 </body>

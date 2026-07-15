@@ -1,0 +1,637 @@
+{
+  "version": "1.0",
+  "characterLimit": 149,
+  "note": "Commemoration dates follow the app’s fixed-calendar data. Approximate dates are marked c.; uncertain details are stated cautiously.",
+  "martyrs": [
+    {
+      "id": "01-01-martyr-basil-of-ancyra",
+      "name": "Martyr Basil of Ancyra",
+      "feastDate": "01-01",
+      "lifeDates": "d. c. 362",
+      "place": "Ancyra, Galatia",
+      "about": "A lay Christian who endured torture and confessed Christ during the persecution of Emperor Julian.",
+      "commemoration": "Circumcision of Our Lord; Saint Basil the Great"
+    },
+    {
+      "id": "01-02-hieromartyr-theogenes-of-parium",
+      "name": "Hieromartyr Theogenes of Parium",
+      "feastDate": "01-02",
+      "lifeDates": "d. c. 320",
+      "place": "Parium, Asia Minor",
+      "about": "A bishop who refused military service and pagan sacrifice, remaining steadfast through imprisonment and death.",
+      "commemoration": "Saint Seraphim of Sarov; Saint Sylvester of Rome"
+    },
+    {
+      "id": "01-02-new-martyr-george-of-iberia",
+      "name": "New Martyr George of Iberia",
+      "feastDate": "01-02",
+      "lifeDates": "d. 1770",
+      "place": "Georgia",
+      "about": "A Georgian Christian remembered for refusing conversion to Islam and accepting death rather than renouncing Christ.",
+      "commemoration": "Saint Seraphim of Sarov; Saint Sylvester of Rome"
+    },
+    {
+      "id": "01-03-martyr-gordius",
+      "name": "Martyr Gordius",
+      "feastDate": "01-03",
+      "lifeDates": "d. c. 304",
+      "place": "Caesarea, Cappadocia",
+      "about": "A Roman soldier who left military service, returned publicly to confess Christ, and was executed.",
+      "commemoration": "Prophet Malachi; Martyr Gordius"
+    },
+    {
+      "id": "01-05-hieromartyrs-theopemptus-and-theonas",
+      "name": "Hieromartyrs Theopemptus and Theonas",
+      "feastDate": "01-05",
+      "lifeDates": "d. c. 303",
+      "place": "Nicomedia",
+      "about": "A bishop and a former pagan magician who confessed Christ together during Diocletian’s persecution.",
+      "commemoration": "Eve of Theophany; Martyrs Theopemptus and Theonas"
+    },
+    {
+      "id": "01-07-martyr-athanasius-of-attalia",
+      "name": "Martyr Athanasius of Attalia",
+      "feastDate": "01-07",
+      "lifeDates": "d. c. 1700",
+      "place": "Attalia, Asia Minor",
+      "about": "A Christian of Attalia remembered for refusing apostasy and accepting execution under Ottoman rule.",
+      "commemoration": "Synaxis of Saint John the Baptist"
+    },
+    {
+      "id": "01-12-martyr-tatiana",
+      "name": "Martyr Tatiana",
+      "feastDate": "01-12",
+      "lifeDates": "d. c. 225",
+      "place": "Rome",
+      "about": "A Roman deaconess who endured torture under Emperor Alexander Severus and remained faithful to Christ.",
+      "commemoration": "Martyr Tatiana of Rome"
+    },
+    {
+      "id": "01-22-venerable-martyr-anastasius-the-persian",
+      "name": "Venerable Martyr Anastasius the Persian",
+      "feastDate": "01-22",
+      "lifeDates": "d. 628",
+      "place": "Persia and Palestine",
+      "about": "A former Persian soldier and monk who was tortured and killed after openly confessing Christianity.",
+      "commemoration": "Apostle Timothy; Venerable Martyr Anastasius the Persian"
+    },
+    {
+      "id": "02-01-martyr-tryphon",
+      "name": "Martyr Tryphon",
+      "feastDate": "02-01",
+      "lifeDates": "d. c. 250",
+      "place": "Phrygia",
+      "about": "A young healer and confessor who suffered under Emperor Decius after refusing to sacrifice to idols.",
+      "commemoration": "Forefeast of the Meeting; Martyr Tryphon"
+    },
+    {
+      "id": "02-10-hieromartyr-charalambos",
+      "name": "Hieromartyr Charalambos",
+      "feastDate": "02-10",
+      "lifeDates": "d. c. 202",
+      "place": "Magnesia, Asia Minor",
+      "about": "An aged bishop who preached Christ openly and endured severe torture during the reign of Septimius Severus.",
+      "commemoration": "Hieromartyr Charalambos"
+    },
+    {
+      "id": "02-17-great-martyr-theodore-the-recruit",
+      "name": "Great Martyr Theodore the Recruit",
+      "feastDate": "02-17",
+      "lifeDates": "d. c. 306",
+      "place": "Amasea, Pontus",
+      "about": "A newly enlisted soldier who refused pagan sacrifice and was burned after boldly confessing Christ.",
+      "commemoration": "Great Martyr Theodore the Recruit"
+    },
+    {
+      "id": "03-01-martyr-eudocia",
+      "name": "Martyr Eudocia",
+      "feastDate": "03-01",
+      "lifeDates": "d. c. 107",
+      "place": "Heliopolis",
+      "about": "A convert who embraced prayer and charity, then suffered execution during the persecution under Trajan.",
+      "commemoration": "Martyr Eudocia of Heliopolis"
+    },
+    {
+      "id": "03-09-forty-martyrs-of-sebaste",
+      "name": "Forty Martyrs of Sebaste",
+      "feastDate": "03-09",
+      "lifeDates": "d. 320",
+      "place": "Sebaste, Armenia",
+      "about": "Forty Christian soldiers exposed on a frozen lake after refusing to renounce Christ or offer pagan sacrifice.",
+      "commemoration": "Forty Martyrs of Sebaste"
+    },
+    {
+      "id": "04-07-new-martyrs-and-confessors-associated-with-the-russian-church",
+      "name": "New Martyrs and Confessors associated with the Russian Church",
+      "feastDate": "04-07",
+      "lifeDates": "20th century",
+      "place": "Russian lands",
+      "about": "Clergy and laity who suffered imprisonment, exile, and death under militant atheistic persecution.",
+      "commemoration": "Saint Tikhon, Patriarch of Moscow"
+    },
+    {
+      "id": "04-23-great-martyr-george",
+      "name": "Great Martyr George",
+      "feastDate": "04-23",
+      "lifeDates": "d. c. 303",
+      "place": "Lydda and Nicomedia",
+      "about": "A Cappadocian soldier who confessed Christ before imperial authorities and was executed under Diocletian.",
+      "commemoration": "Great Martyr George the Trophy-Bearer"
+    },
+    {
+      "id": "04-25-martyr-nike",
+      "name": "Martyr Nike",
+      "feastDate": "04-25",
+      "lifeDates": "Early Christian era",
+      "place": "Eastern Roman world",
+      "about": "Remembered in Orthodox synaxaria as an early Christian witness; surviving biographical details are limited.",
+      "commemoration": "Apostle and Evangelist Mark"
+    },
+    {
+      "id": "05-05-great-martyr-irene",
+      "name": "Great Martyr Irene",
+      "feastDate": "05-05",
+      "lifeDates": "d. early 4th century",
+      "place": "Macedonia",
+      "about": "A royal-born convert who preached Christ and endured repeated torments while refusing idolatry.",
+      "commemoration": "Great Martyr Irene"
+    },
+    {
+      "id": "05-11-hieromartyr-mocius",
+      "name": "Hieromartyr Mocius",
+      "feastDate": "05-11",
+      "lifeDates": "d. c. 295",
+      "place": "Amphipolis, Macedonia",
+      "about": "A priest who disrupted a pagan sacrifice, confessed Christ, and was beheaded after prolonged torture.",
+      "commemoration": "Hieromartyr Mocius; Saints Cyril and Methodius"
+    },
+    {
+      "id": "06-29-martyrs-traditionally-associated-with-the-apostolic-witness-at-rome",
+      "name": "Martyrs traditionally associated with the apostolic witness at Rome",
+      "feastDate": "06-29",
+      "lifeDates": "1st century",
+      "place": "Rome",
+      "about": "Christians remembered with the apostolic witness at Rome, where persecution claimed many early believers.",
+      "commemoration": "Chief Apostles Peter and Paul"
+    },
+    {
+      "id": "07-01-martyrs-cosmas-and-damian",
+      "name": "Martyrs Cosmas and Damian",
+      "feastDate": "07-01",
+      "lifeDates": "d. c. 284",
+      "place": "Rome",
+      "about": "Physician brothers who healed without payment and were killed after refusing to abandon their Christian faith.",
+      "commemoration": "Holy Unmercenaries Cosmas and Damian of Rome"
+    },
+    {
+      "id": "07-11-great-martyr-euphemia",
+      "name": "Great Martyr Euphemia",
+      "feastDate": "07-11",
+      "lifeDates": "d. 304",
+      "place": "Chalcedon",
+      "about": "A young Christian who endured torture under Diocletian and became closely linked with Chalcedon’s memory.",
+      "commemoration": "Great Martyr Euphemia; Saint Olga"
+    },
+    {
+      "id": "07-14-martyr-justus",
+      "name": "Martyr Justus",
+      "feastDate": "07-14",
+      "lifeDates": "Early Christian era",
+      "place": "Roman Empire",
+      "about": "An early Christian martyr remembered for steadfast confession; surviving details vary among local calendars.",
+      "commemoration": "Apostle Aquila; Saint Nikodemos of the Holy Mountain"
+    },
+    {
+      "id": "07-15-martyrs-cyricus-and-julitta",
+      "name": "Martyrs Cyricus and Julitta",
+      "feastDate": "07-15",
+      "lifeDates": "d. c. 304",
+      "place": "Tarsus",
+      "about": "A mother and her young son who were killed during Diocletian’s persecution after refusing apostasy.",
+      "commemoration": "Great Prince Vladimir, Equal-to-the-Apostles"
+    },
+    {
+      "id": "07-17-great-martyr-marina",
+      "name": "Great Martyr Marina",
+      "feastDate": "07-17",
+      "lifeDates": "d. c. 304",
+      "place": "Antioch of Pisidia",
+      "about": "A young Christian who rejected idolatry and endured torture and execution during Diocletian’s reign.",
+      "commemoration": "Great Martyr Marina"
+    },
+    {
+      "id": "07-24-great-martyr-christina",
+      "name": "Great Martyr Christina",
+      "feastDate": "07-24",
+      "lifeDates": "d. c. 300",
+      "place": "Tyre",
+      "about": "A young convert who destroyed idols, endured family opposition and torture, and remained faithful unto death.",
+      "commemoration": "Great Martyr Christina"
+    },
+    {
+      "id": "07-27-great-martyr-panteleimon",
+      "name": "Great Martyr Panteleimon",
+      "feastDate": "07-27",
+      "lifeDates": "d. c. 305",
+      "place": "Nicomedia",
+      "about": "A physician who treated the poor freely and was executed after confessing Christ before imperial authorities.",
+      "commemoration": "Great Martyr and Healer Panteleimon"
+    },
+    {
+      "id": "08-01-seven-maccabee-martyrs",
+      "name": "Seven Maccabee Martyrs",
+      "feastDate": "08-01",
+      "lifeDates": "d. 2nd century BC",
+      "place": "Jerusalem tradition",
+      "about": "Seven brothers and their mother endured torture rather than violate God’s law under Antiochus IV.",
+      "commemoration": "Procession of the Holy Cross; Seven Maccabee Martyrs"
+    },
+    {
+      "id": "08-09-martyr-anthony-of-alexandria",
+      "name": "Martyr Anthony of Alexandria",
+      "feastDate": "08-09",
+      "lifeDates": "Date uncertain",
+      "place": "Alexandria",
+      "about": "An Alexandrian Christian remembered in the synaxaria for faithful witness; historical details are sparse.",
+      "commemoration": "Apostle Matthias"
+    },
+    {
+      "id": "08-16-martyr-diomedes",
+      "name": "Martyr Diomedes",
+      "feastDate": "08-16",
+      "lifeDates": "d. c. 298",
+      "place": "Nicaea",
+      "about": "A Christian physician who healed without payment and was killed during the persecution under Diocletian.",
+      "commemoration": "Holy Mandylion; Martyr Diomedes"
+    },
+    {
+      "id": "08-29-saint-john-the-baptist",
+      "name": "Saint John the Baptist",
+      "feastDate": "08-29",
+      "lifeDates": "d. c. AD 29",
+      "place": "Machaerus",
+      "about": "The Forerunner was beheaded after condemning Herod’s unlawful marriage and bearing witness to moral truth.",
+      "commemoration": "Beheading of Saint John the Baptist"
+    },
+    {
+      "id": "08-31-hieromartyr-cyprian-of-carthage",
+      "name": "Hieromartyr Cyprian of Carthage",
+      "feastDate": "08-31",
+      "lifeDates": "c. 210–258",
+      "place": "Carthage",
+      "about": "Bishop and theologian beheaded during Valerian’s persecution after refusing pagan sacrifice.",
+      "commemoration": "Placing of the Sash of the Theotokos"
+    },
+    {
+      "id": "09-01-forty-women-martyrs-and-their-teacher-ammon",
+      "name": "Forty Women Martyrs and their teacher Ammon",
+      "feastDate": "09-01",
+      "lifeDates": "d. c. 321",
+      "place": "Heraclea, Thrace",
+      "about": "Christian women and their teacher who were tortured and killed for refusing pagan worship under Licinius.",
+      "commemoration": "Beginning of the Church Year; Saint Symeon the Stylite"
+    },
+    {
+      "id": "09-09-martyr-severian",
+      "name": "Martyr Severian",
+      "feastDate": "09-09",
+      "lifeDates": "d. c. 320",
+      "place": "Sebaste, Armenia",
+      "about": "A Christian senator who aided imprisoned believers and was tortured to death under Governor Lysias.",
+      "commemoration": "Saints Joachim and Anna"
+    },
+    {
+      "id": "09-16-great-martyr-euphemia",
+      "name": "Great Martyr Euphemia",
+      "feastDate": "09-16",
+      "lifeDates": "d. 304",
+      "place": "Chalcedon",
+      "about": "Her principal feast recalls her steadfast confession and martyrdom during the persecution of Diocletian.",
+      "commemoration": "Great Martyr Euphemia"
+    },
+    {
+      "id": "09-17-sophia-faith-hope-and-love",
+      "name": "Sophia, Faith, Hope, and Love",
+      "feastDate": "09-17",
+      "lifeDates": "d. 2nd century",
+      "place": "Rome",
+      "about": "Three young sisters were martyred before their mother Sophia, who died after grieving at their tombs.",
+      "commemoration": "Martyrs Sophia, Faith, Hope, and Love"
+    },
+    {
+      "id": "09-20-great-martyr-eustathius-and-his-family",
+      "name": "Great Martyr Eustathius and his family",
+      "feastDate": "09-20",
+      "lifeDates": "d. c. 118",
+      "place": "Rome",
+      "about": "A Roman commander, his wife, and sons were executed after refusing to sacrifice to pagan gods.",
+      "commemoration": "Great Martyr Eustathius and his family"
+    },
+    {
+      "id": "09-24-protomartyr-thecla",
+      "name": "Protomartyr Thecla",
+      "feastDate": "09-24",
+      "lifeDates": "1st century",
+      "place": "Iconium and Seleucia",
+      "about": "A disciple of Paul remembered for preaching, ascetic courage, and surviving repeated attempts to kill her.",
+      "commemoration": "Protomartyr Thecla, Equal-to-the-Apostles"
+    },
+    {
+      "id": "09-30-martyrs-mardonius-and-stratonikos",
+      "name": "Martyrs Mardonius and Stratonikos",
+      "feastDate": "09-30",
+      "lifeDates": "d. early 4th century",
+      "place": "Roman Empire",
+      "about": "Early Christian martyrs remembered for steadfast confession during imperial persecution.",
+      "commemoration": "Saint Gregory the Illuminator"
+    },
+    {
+      "id": "10-02-cyprian-and-justina",
+      "name": "Cyprian and Justina",
+      "feastDate": "10-02",
+      "lifeDates": "d. c. 304",
+      "place": "Antioch and Nicomedia",
+      "about": "A former magician and a Christian virgin who resisted spiritual coercion and were executed under Diocletian.",
+      "commemoration": "Hieromartyr Cyprian and Virgin Martyr Justina"
+    },
+    {
+      "id": "10-03-martyrs-rusticus-and-eleutherius",
+      "name": "Martyrs Rusticus and Eleutherius",
+      "feastDate": "10-03",
+      "lifeDates": "d. c. 107",
+      "place": "Rome",
+      "about": "Companions of Ignatius of Antioch who shared his journey and were martyred for confessing Christ.",
+      "commemoration": "Hieromartyr Dionysius the Areopagite"
+    },
+    {
+      "id": "10-06-martyr-eroteis",
+      "name": "Martyr Eroteis",
+      "feastDate": "10-06",
+      "lifeDates": "Early Christian era",
+      "place": "Eastern Roman world",
+      "about": "An early Christian witness preserved in the synaxaria; reliable biographical information is limited.",
+      "commemoration": "Apostle Thomas"
+    },
+    {
+      "id": "10-07-sergius-and-bacchus",
+      "name": "Sergius and Bacchus",
+      "feastDate": "10-07",
+      "lifeDates": "d. c. 303",
+      "place": "Syria",
+      "about": "Roman officers stripped of rank and killed after their Christian faith was exposed under Maximian.",
+      "commemoration": "Great Martyrs Sergius and Bacchus"
+    },
+    {
+      "id": "10-08-virgin-martyr-pelagia",
+      "name": "Virgin Martyr Pelagia",
+      "feastDate": "10-08",
+      "lifeDates": "d. early 4th century",
+      "place": "Antioch",
+      "about": "A young Christian who chose death rather than surrender her faith and chastity during persecution.",
+      "commemoration": "Saint Pelagia; Virgin Martyr Pelagia"
+    },
+    {
+      "id": "10-14-nazarius-gervasius-protasius-and-celsus",
+      "name": "Nazarius, Gervasius, Protasius, and Celsus",
+      "feastDate": "10-14",
+      "lifeDates": "1st–3rd centuries",
+      "place": "Milan tradition",
+      "about": "Martyrs linked by the Milanese tradition and honored for missionary witness and steadfast confession.",
+      "commemoration": "Martyrs Nazarius, Gervasius, Protasius, and Celsus"
+    },
+    {
+      "id": "10-18-martyr-marinus",
+      "name": "Martyr Marinus",
+      "feastDate": "10-18",
+      "lifeDates": "Early Christian era",
+      "place": "Roman Empire",
+      "about": "An early martyr commemorated for refusing apostasy; surviving accounts provide few secure details.",
+      "commemoration": "Apostle and Evangelist Luke"
+    },
+    {
+      "id": "10-20-great-martyr-artemius",
+      "name": "Great Martyr Artemius",
+      "feastDate": "10-20",
+      "lifeDates": "d. 362",
+      "place": "Antioch",
+      "about": "A military governor who opposed Julian’s anti-Christian policies and was tortured and beheaded.",
+      "commemoration": "Great Martyr Artemius"
+    },
+    {
+      "id": "10-24-arethas-and-companions",
+      "name": "Arethas and companions",
+      "feastDate": "10-24",
+      "lifeDates": "d. 523",
+      "place": "Najran, Arabia",
+      "about": "Arethas and many Christians of Najran were killed after refusing to renounce Christ.",
+      "commemoration": "Great Martyr Arethas and companions"
+    },
+    {
+      "id": "10-26-great-martyr-demetrius",
+      "name": "Great Martyr Demetrius",
+      "feastDate": "10-26",
+      "lifeDates": "d. c. 306",
+      "place": "Thessalonica",
+      "about": "A military saint and teacher imprisoned and killed for Christian witness during Diocletian’s persecution.",
+      "commemoration": "Great Martyr Demetrius the Myrrh-Streamer"
+    },
+    {
+      "id": "10-27-martyr-nestor",
+      "name": "Martyr Nestor",
+      "feastDate": "10-27",
+      "lifeDates": "d. c. 306",
+      "place": "Thessalonica",
+      "about": "A young Christian who faced the gladiator Lyaeus with Demetrius’s blessing and was later beheaded.",
+      "commemoration": "Martyr Nestor of Thessalonica"
+    },
+    {
+      "id": "10-28-terence-and-neonilla",
+      "name": "Terence and Neonilla",
+      "feastDate": "10-28",
+      "lifeDates": "d. c. 250",
+      "place": "Syria tradition",
+      "about": "A married couple and their children who endured torture and death together during Christian persecution.",
+      "commemoration": "Protection of the Theotokos in Greek tradition; Martyrs Terence and Neonilla"
+    },
+    {
+      "id": "11-01-cosmas-and-damian",
+      "name": "Cosmas and Damian",
+      "feastDate": "11-01",
+      "lifeDates": "3rd–4th centuries",
+      "place": "Asia Minor",
+      "about": "Unmercenary physician saints remembered for healing freely; this pair is not always described as martyred.",
+      "commemoration": "Holy Unmercenaries Cosmas and Damian"
+    },
+    {
+      "id": "11-09-onesiphorus-and-porphyrius",
+      "name": "Onesiphorus and Porphyrius",
+      "feastDate": "11-09",
+      "lifeDates": "d. c. 284–305",
+      "place": "Ephesus tradition",
+      "about": "Christian companions tortured and killed during the persecutions of Diocletian and Maximian.",
+      "commemoration": "Martyrs Onesiphorus and Porphyrius"
+    },
+    {
+      "id": "11-11-menas",
+      "name": "Menas",
+      "feastDate": "11-11",
+      "lifeDates": "d. c. 304",
+      "place": "Egypt",
+      "about": "An Egyptian soldier who left the army, confessed Christ publicly, and was executed under Diocletian.",
+      "commemoration": "Great Martyr Menas; Martyrs Victor and Vincent"
+    },
+    {
+      "id": "11-11-victor",
+      "name": "Victor",
+      "feastDate": "11-11",
+      "lifeDates": "d. 2nd century",
+      "place": "Damascus tradition",
+      "about": "A Christian soldier tortured and killed after refusing pagan worship during the reign of Marcus Aurelius.",
+      "commemoration": "Great Martyr Menas; Martyrs Victor and Vincent"
+    },
+    {
+      "id": "11-11-vincent",
+      "name": "Vincent",
+      "feastDate": "11-11",
+      "lifeDates": "d. 304",
+      "place": "Valencia",
+      "about": "A Spanish deacon who endured severe torture and died during Diocletian’s persecution.",
+      "commemoration": "Great Martyr Menas; Martyrs Victor and Vincent"
+    },
+    {
+      "id": "11-13-martyr-antoninus",
+      "name": "Martyr Antoninus",
+      "feastDate": "11-13",
+      "lifeDates": "Early Christian era",
+      "place": "Roman Empire",
+      "about": "An early Christian martyr whose name is preserved in the calendar though detailed records are limited.",
+      "commemoration": "Saint John Chrysostom"
+    },
+    {
+      "id": "11-24-great-martyr-catherine",
+      "name": "Great Martyr Catherine",
+      "feastDate": "11-24",
+      "lifeDates": "d. early 4th century",
+      "place": "Alexandria",
+      "about": "A learned Christian who challenged pagan arguments and was executed after refusing imperial coercion.",
+      "commemoration": "Great Martyr Catherine"
+    },
+    {
+      "id": "11-25-hieromartyr-peter-of-alexandria",
+      "name": "Hieromartyr Peter of Alexandria",
+      "feastDate": "11-25",
+      "lifeDates": "d. 311",
+      "place": "Alexandria",
+      "about": "Bishop of Alexandria beheaded during the final phase of Diocletian’s persecution.",
+      "commemoration": "Saint Clement of Rome; Hieromartyr Peter of Alexandria"
+    },
+    {
+      "id": "12-04-great-martyr-barbara",
+      "name": "Great Martyr Barbara",
+      "feastDate": "12-04",
+      "lifeDates": "d. c. 306",
+      "place": "Heliopolis tradition",
+      "about": "A young Christian killed after resisting family pressure and refusing to renounce her faith.",
+      "commemoration": "Great Martyr Barbara; Saint John of Damascus"
+    },
+    {
+      "id": "12-05-martyr-diogenes",
+      "name": "Martyr Diogenes",
+      "feastDate": "12-05",
+      "lifeDates": "Early Christian era",
+      "place": "Roman Empire",
+      "about": "An early Christian witness commemorated in the synaxaria; dependable biographical details are scarce.",
+      "commemoration": "Saint Sabbas the Sanctified"
+    },
+    {
+      "id": "12-06-martyr-niser",
+      "name": "Martyr Niser",
+      "feastDate": "12-06",
+      "lifeDates": "Date uncertain",
+      "place": "Eastern Christian tradition",
+      "about": "A martyr preserved in local Orthodox memory; surviving historical information is limited.",
+      "commemoration": "Saint Nicholas the Wonderworker"
+    },
+    {
+      "id": "12-12-martyr-synesius",
+      "name": "Martyr Synesius",
+      "feastDate": "12-12",
+      "lifeDates": "d. c. 275",
+      "place": "Rome tradition",
+      "about": "A Christian reader who was tortured and beheaded during the persecution of Emperor Aurelian.",
+      "commemoration": "Saint Spyridon the Wonderworker"
+    },
+    {
+      "id": "12-13-five-martyrs-of-sebaste",
+      "name": "Five Martyrs of Sebaste",
+      "feastDate": "12-13",
+      "lifeDates": "d. c. 320",
+      "place": "Sebaste, Armenia",
+      "about": "Eustratius, Auxentius, Eugenius, Mardarius, and Orestes suffered together under imperial persecution.",
+      "commemoration": "Martyrs Eustratius, Auxentius, Eugenius, Mardarius, and Orestes"
+    },
+    {
+      "id": "12-17-martyr-iacchus",
+      "name": "Martyr Iacchus",
+      "feastDate": "12-17",
+      "lifeDates": "Early Christian era",
+      "place": "Roman Empire",
+      "about": "An early Christian martyr remembered by name in the calendar; further details are uncertain.",
+      "commemoration": "Prophet Daniel and the Three Holy Youths"
+    },
+    {
+      "id": "12-20-hieromartyr-ignatius",
+      "name": "Hieromartyr Ignatius",
+      "feastDate": "12-20",
+      "lifeDates": "d. c. 107",
+      "place": "Antioch and Rome",
+      "about": "Bishop of Antioch who wrote pastoral letters en route to Rome, where he was killed in the arena.",
+      "commemoration": "Hieromartyr Ignatius of Antioch"
+    },
+    {
+      "id": "12-24-venerable-martyr-eugenia",
+      "name": "Venerable Martyr Eugenia",
+      "feastDate": "12-24",
+      "lifeDates": "d. c. 258",
+      "place": "Rome and Alexandria tradition",
+      "about": "An ascetic Christian who served others in disguise and was later executed during imperial persecution.",
+      "commemoration": "Eve of the Nativity; Venerable Martyr Eugenia"
+    },
+    {
+      "id": "12-26-martyr-euthymius",
+      "name": "Martyr Euthymius",
+      "feastDate": "12-26",
+      "lifeDates": "Date uncertain",
+      "place": "Eastern Roman world",
+      "about": "A Christian martyr commemorated after the Nativity; reliable details of his life remain limited.",
+      "commemoration": "Synaxis of the Most Holy Theotokos"
+    },
+    {
+      "id": "12-27-protomartyr-stephen",
+      "name": "Protomartyr Stephen",
+      "feastDate": "12-27",
+      "lifeDates": "d. c. AD 34–36",
+      "place": "Jerusalem",
+      "about": "One of the first seven deacons, stoned after proclaiming Christ and forgiving those who killed him.",
+      "commemoration": "Apostle, Protomartyr, and Archdeacon Stephen"
+    },
+    {
+      "id": "12-29-holy-innocents",
+      "name": "Holy Innocents",
+      "feastDate": "12-29",
+      "lifeDates": "late 1st century BC",
+      "place": "Bethlehem",
+      "about": "Children killed by Herod in the Gospel account, honored as innocent witnesses associated with Christ.",
+      "commemoration": "Holy Innocents slain at Bethlehem"
+    },
+    {
+      "id": "12-31-martyr-busiris",
+      "name": "Martyr Busiris",
+      "feastDate": "12-31",
+      "lifeDates": "Early Christian era",
+      "place": "Eastern Christian tradition",
+      "about": "An early Christian martyr preserved in the synaxaria; detailed historical evidence is limited.",
+      "commemoration": "Saint Melania the Younger"
+    }
+  ]
+}

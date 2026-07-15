@@ -1,5 +1,5 @@
 {
-  "name": "Orthodox Daily — Prayer, Saints & Memory",
+  "name": "Orthodox Daily \u2014 Prayer, Saints & Memory",
   "short_name": "Orthodox Daily",
   "description": "Offline Orthodox prayer, saints, martyrs, history, fasting guidance, and calendar through 2030.",
   "start_url": "./",
@@ -34,5 +34,13 @@
       "form_factor": "wide",
       "label": "Orthodox history visual archive"
     }
-  ]
+  ],
+  "id": "./",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr"
 }

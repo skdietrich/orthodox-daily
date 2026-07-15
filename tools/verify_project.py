@@ -38,6 +38,7 @@ REQUIRED = [
     "data/prayers.json",
     "data/practices.json",
     "data/images.json",
+    "data/martyrs.json",
     "tools/generate_art.py",
     "README.md",
     "SOURCES.md",
@@ -257,6 +258,42 @@ def check_other_data() -> tuple[int, int, int]:
     return len(history), len(prayers), len(practices)
 
 
+def check_martyr_profiles(expected_count: int) -> tuple[int, int]:
+    payload = read_json("data/martyrs.json")
+    profiles = payload.get("martyrs")
+    limit = payload.get("characterLimit", 149)
+    if not isinstance(profiles, list) or not profiles:
+        fail("martyrs.json must contain martyr profiles")
+    if len(profiles) != expected_count:
+        fail(f"martyrs.json has {len(profiles)} profiles but fixed calendar has {expected_count} martyr entries")
+    ids = set()
+    max_about = 0
+    fixed = read_json("data/fixed-calendar.json").get("entries", {})
+    expected = {(date_key, name) for date_key, entry in fixed.items() for name in entry.get("martyrs", [])}
+    actual = set()
+    for profile in profiles:
+        profile_id = profile.get("id")
+        if not profile_id or profile_id in ids:
+            fail("Martyr profile IDs must be unique and non-empty")
+        ids.add(profile_id)
+        key = (profile.get("feastDate"), profile.get("name"))
+        actual.add(key)
+        if key not in expected:
+            fail(f"Martyr profile does not match fixed calendar: {key}")
+        about = profile.get("about", "")
+        if not isinstance(about, str) or not about.strip():
+            fail(f"Martyr profile is missing about text: {profile_id}")
+        if len(about) > limit or len(about) >= 150:
+            fail(f"Martyr about text exceeds 149 characters: {profile_id} ({len(about)})")
+        if not profile.get("lifeDates") or not profile.get("place"):
+            fail(f"Martyr profile dates/place missing: {profile_id}")
+        max_about = max(max_about, len(about))
+    if actual != expected:
+        missing = sorted(expected - actual)
+        fail(f"Martyr profiles are incomplete: {missing[:5]}")
+    return len(profiles), max_about
+
+
 def check_service_worker() -> int:
     text = (ROOT / "service-worker.js").read_text(encoding="utf-8")
     match = re.search(r"const APP_SHELL\s*=\s*\[(.*?)\];", text, re.S)
@@ -288,6 +325,7 @@ def main() -> int:
         largest_path, largest_size = check_sizes()
         check_manifest()
         curated, martyrs = check_fixed_data()
+        martyr_profiles, max_martyr_about = check_martyr_profiles(martyrs)
         daily_records = check_years()
         history, prayers, practices = check_other_data()
         content_images, image_bytes = check_content_images()
@@ -302,6 +340,7 @@ def main() -> int:
     print(f"  Daily records: {daily_records}")
     print(f"  Curated fixed-date entries: {curated}")
     print(f"  Martyr memorial records: {martyrs}")
+    print(f"  Martyr profiles: {martyr_profiles} (longest about text: {max_martyr_about} characters)")
     print(f"  Historical spotlights: {history}")
     print(f"  Prayers: {prayers}")
     print(f"  Daily practices: {practices}")

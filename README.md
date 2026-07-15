@@ -1,28 +1,25 @@
 # Orthodox Daily
 
-A fully static, installable Orthodox prayer and historical calendar app designed for GitHub Pages. Open `ART_PREVIEW.jpg` for a contact sheet of the included local visual library.
-
-![Artwork preview](ART_PREVIEW.jpg)
+A fully static, installable Orthodox prayer and historical calendar app designed for GitHub Pages.
 
 ## What is included
 
 - Local daily calendar data from **January 1, 2026 through December 31, 2030**
 - Precomputed Paschal-cycle dates and movable commemorations for all five years
 - 115 curated principal fixed-date entries
-- 71 indexed martyr memorials
+- 70 indexed martyr profiles with commemoration date, life/martyrdom dates, place, and a biography capped at 149 characters
 - 41 “On This Date” historical spotlights
-- 18 full-size original 1600×900 JPEG artworks stored locally (about 9.15 MB total)
-- Calendar-driven hero art plus image-backed martyr and history archives
 - 14 traditional or clearly labeled original devotional prayers
 - Revised/New Calendar and Old/Julian fixed-commemoration display
 - Broad fasting guidance with pastoral and medical cautions
 - Live clock and date controls
 - Offline moon phase and approximate sunrise/sunset calculations
 - Pascha countdown
-- Searchable prayer, martyr, and history archives
+- Searchable prayer, expanded martyr-profile, and history archives
 - Private browser-local journal
 - Candle prayer timer with an optional completion chime
 - Export/import for settings, favorites, and journal entries
+- Responsive layouts for iPhone/iPad, Android phones/tablets, Windows and Mac laptops, desktop, ultrawide, and 4K displays
 - Progressive Web App installation and offline operation
 - Automatic service-worker refresh when updated files are published
 
@@ -60,17 +57,15 @@ Do not test by double-clicking `index.html`; browsers block local JSON requests 
 python tools/verify_project.py
 ```
 
-The verifier checks required files, JSON validity, calendar completeness, Pascha dates, icon dimensions, JavaScript-to-HTML bindings, all offline service-worker assets, and the rule that every individual file remains below 23 MiB. It also refuses to pass unless at least 18 content images exist, are at least 1200×675, and are larger than 250 KB each.
+The verifier checks required files, JSON validity, calendar completeness, Pascha dates, martyr-profile coverage, the 149-character biography limit, DOM bindings, icon dimensions, service-worker assets, and the rule that every individual file remains below 23 MiB.
 
 ## Editing content
 
 - `data/fixed-calendar.json` — fixed-date feasts, saints, and martyrs
 - `data/history.json` — historical daily spotlights
+- `data/martyrs.json` — expanded martyr profiles and concise biographies
 - `data/prayers.json` — prayer library
 - `data/practices.json` — short daily practices
-- `data/images.json` — local image metadata, captions, and alt text
-- `assets/art/*.jpg` — full-size original devotional and historical artwork
-- `tools/generate_art.py` — deterministic artwork generator used for this edition
 - `data/years/*.json` — generated daily records, movable feasts, fasting, and Pascha
 
 After changing files, change `CACHE_NAME` in `service-worker.js` for an immediate clean cache migration. The network-first service worker will also refresh changed files when the published site is revisited.
@@ -85,4 +80,4 @@ Journal entries, favorites, and preferences use browser `localStorage`. They nev
 
 ## License and sources
 
-Code is released under the MIT License. The included artwork was created specifically for this project and may be used and modified with the app under the same license. The images are original devotional illustrations, not canonical liturgical icons or documentary photographs. See `SOURCES.md`, `CONTENT_NOTES.md`, and `IMAGE_INVENTORY.md`.
+Code is released under the MIT License. See `SOURCES.md` and `CONTENT_NOTES.md` for editorial scope and reference notes.

@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const APP_VERSION = "1.1.0";
+  const APP_VERSION = "1.2.0";
   const MIN_DATE = "2026-01-01";
   const MAX_DATE = "2030-12-31";
   const DAY_MS = 86400000;
@@ -16,6 +16,7 @@
     prayers: [],
     practices: [],
     images: [],
+    martyrProfiles: [],
     years: {},
     favorites: new Set(),
     settings: {
@@ -123,12 +124,13 @@
   }
 
   async function loadData() {
-    const [fixed, history, prayers, practices, images, ...yearFiles] = await Promise.all([
+    const [fixed, history, prayers, practices, images, martyrs, ...yearFiles] = await Promise.all([
       fetchJson("data/fixed-calendar.json"),
       fetchJson("data/history.json"),
       fetchJson("data/prayers.json"),
       fetchJson("data/practices.json"),
       fetchJson("data/images.json"),
+      fetchJson("data/martyrs.json"),
       ...[2026, 2027, 2028, 2029, 2030].map(year => fetchJson(`data/years/${year}.json`))
     ]);
     state.fixed = fixed.entries || {};
@@ -136,9 +138,27 @@
     state.prayers = prayers.prayers || [];
     state.practices = practices.practices || [];
     state.images = images.images || [];
+    state.martyrProfiles = martyrs.martyrs || [];
     yearFiles.forEach(file => { state.years[file.year] = file; });
   }
 
+
+
+  function getMartyrProfile(dateKey, name) {
+    return state.martyrProfiles.find(item => item.feastDate === dateKey && item.name === name) || null;
+  }
+
+  function martyrProfileHtml(profile, name, dateKey) {
+    const displayName = profile?.name || name;
+    const lifeDates = profile?.lifeDates || "Date uncertain";
+    const place = profile?.place || "Orthodox tradition";
+    const about = profile?.about || "Remembered for steadfast Christian witness; surviving biographical details are limited.";
+    return `<article class="martyr-mini-profile">
+      <div class="martyr-mini-heading"><strong>${escapeHtml(displayName)}</strong><span>${escapeHtml(formatMonthDayFromKey(dateKey))}</span></div>
+      <p class="martyr-dates">${escapeHtml(lifeDates)} · ${escapeHtml(place)}</p>
+      <p class="martyr-about">${escapeHtml(about)}</p>
+    </article>`;
+  }
 
   function imageById(id) {
     return state.images.find(image => image.id === id) || null;
@@ -260,9 +280,10 @@
         ? `<p class="fine-print">The app does not invent a complete list where Orthodox jurisdictions differ. Add or revise this date in <code>data/fixed-calendar.json</code>.</p>`
         : "");
 
+    const todayMartyrKey = fixedKey(fixedDate);
     $("#martyrsContent").innerHTML = fixed.martyrs?.length
-      ? `<ul>${fixed.martyrs.map(name => `<li>${escapeHtml(name)}</li>`).join("")}</ul>
-         <p class="fine-print">Remember those who bore witness to Christ even unto death.</p>`
+      ? `<div class="martyr-mini-list">${fixed.martyrs.map(name => martyrProfileHtml(getMartyrProfile(todayMartyrKey, name), name, todayMartyrKey)).join("")}</div>
+         <p class="fine-print">Concise educational summaries; consult an official synaxarion for complete lives.</p>`
       : `<p>No principal martyr is listed in this curated entry.</p>
          <p class="fine-print">Your parish or jurisdictional calendar may include additional witnesses.</p>`;
 
@@ -435,27 +456,40 @@
   }
 
   function buildMartyrIndex() {
+    if (state.martyrProfiles.length) {
+      return state.martyrProfiles
+        .map(profile => ({ ...profile }))
+        .sort((a, b) => a.feastDate.localeCompare(b.feastDate) || a.name.localeCompare(b.name));
+    }
     return Object.entries(state.fixed).flatMap(([date, entry]) =>
-      (entry.martyrs || []).map(name => ({ date, name, commemoration: entry.display }))
-    ).sort((a, b) => a.date.localeCompare(b.date) || a.name.localeCompare(b.name));
+      (entry.martyrs || []).map(name => ({
+        feastDate: date, name, commemoration: entry.display, lifeDates: "Date uncertain",
+        place: "Orthodox tradition",
+        about: "Remembered for steadfast Christian witness; surviving biographical details are limited."
+      }))
+    ).sort((a, b) => a.feastDate.localeCompare(b.feastDate) || a.name.localeCompare(b.name));
   }
 
   function renderMartyrs() {
     const search = $("#martyrSearch").value.trim().toLowerCase();
-    const items = buildMartyrIndex().filter(item =>
-      !search || `${item.name} ${item.commemoration} ${item.date}`.toLowerCase().includes(search)
+    const allItems = buildMartyrIndex();
+    const items = allItems.filter(item =>
+      !search || `${item.name} ${item.commemoration || ""} ${item.feastDate} ${item.lifeDates || ""} ${item.place || ""} ${item.about || ""}`.toLowerCase().includes(search)
     );
+    $("#martyrCount").textContent = `${items.length} of ${allItems.length} profiles`;
     $("#martyrArchive").innerHTML = items.length ? items.map(item => {
-      const image = imageForWitness(item.date);
-      return `<article class="archive-item with-image">
-        <div class="archive-date">${escapeHtml(formatMonthDayFromKey(item.date))}</div>
+      const image = imageForWitness(item.feastDate);
+      return `<article class="archive-item martyr-profile-card with-image">
+        <div class="archive-date">${escapeHtml(formatMonthDayFromKey(item.feastDate))}</div>
         ${image ? `<img class="archive-thumb" src="${escapeHtml(image.src)}" alt="" loading="lazy">` : ""}
-        <div>
+        <div class="martyr-profile-copy">
           <h3>${escapeHtml(item.name)}</h3>
-          <p class="muted">${escapeHtml(item.commemoration)}</p>
+          <p class="martyr-dates"><strong>${escapeHtml(item.lifeDates || "Date uncertain")}</strong> · ${escapeHtml(item.place || "Orthodox tradition")}</p>
+          <p class="martyr-about">${escapeHtml(item.about || "")}</p>
+          <p class="fine-print">Commemoration: ${escapeHtml(item.commemoration || formatMonthDayFromKey(item.feastDate))}</p>
         </div>
       </article>`;
-    }).join("") : `<div class="empty">No martyr entries match this search.</div>`;
+    }).join("") : `<div class="empty">No martyr profiles match this search.</div>`;
   }
 
   function renderHistory() {

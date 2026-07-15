@@ -1,4 +1,4 @@
-const CACHE_NAME = "orthodox-daily-v1.1.0";
+const CACHE_NAME = "orthodox-daily-v1.2.0";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -35,6 +35,7 @@ const APP_SHELL = [
   "./data/prayers.json",
   "./data/practices.json",
   "./data/images.json",
+  "./data/martyrs.json",
   "./data/years/2026.json",
   "./data/years/2027.json",
   "./data/years/2028.json",
