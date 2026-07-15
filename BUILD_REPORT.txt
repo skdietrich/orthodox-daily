@@ -1,0 +1,40 @@
+ORTHODOX DAILY — BUILD VERIFICATION REPORT
+Build: 1.1.0 visual-library rebuild
+Data window: 2026-01-01 through 2030-12-31
+
+PASSED
+- Required project files present
+- Manifest JSON valid
+- 192x192 and 512x512 install icons valid
+- 366 fixed calendar keys present
+- 1,826 civil-day records present across 2026–2030
+- Pascha dates match the checked project table
+- 115 curated principal fixed-date entries
+- 71 martyr memorial records
+- 41 historical spotlights
+- 14 prayers
+- 10 daily practices
+- 18 genuine local JPEG content images
+- Every content image is 1600x900 pixels
+- Content-image library totals 9,153,266 bytes
+- Every content image exceeds the verifier's 250,000-byte minimum
+- Calendar-driven hero image rotation is wired to local image metadata
+- Martyr archive and historical timeline render local image thumbnails
+- 61 JavaScript-to-HTML element bindings verified
+- Service worker references 40 valid offline resources, including all 18 content images
+- Runtime files contain no external HTTP dependencies
+- JavaScript syntax checks passed with Node.js
+- All 40 offline resources returned HTTP 200 through a local static server
+- No individual project file approaches the 23 MiB limit
+
+Largest project file at build time:
+assets/art/month-11-archangels.jpg — 564,316 bytes (approximately 0.54 MiB)
+
+Project folder size at build time:
+approximately 9.8 MiB uncompressed
+
+File-size ceiling enforced by verifier:
+24,117,248 bytes (23 MiB) per file
+
+Open ART_PREVIEW.jpg for a contact sheet of all included artwork.
+Run `python tools/verify_project.py` after any content or code changes.

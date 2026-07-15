@@ -1,0 +1,23 @@
+{
+  "license": "Original artwork created for Orthodox Daily. These images are devotional illustrations, not canonical liturgical icons or documentary photographs.",
+  "images": [
+    {"id":"month-01","src":"assets/art/month-01-theophany.jpg","title":"Theophany","alt":"Original blue and gold devotional artwork showing church domes and water beneath a radiant cross","caption":"Light upon the waters"},
+    {"id":"month-02","src":"assets/art/month-02-temple.jpg","title":"The Meeting","alt":"Original purple and gold devotional artwork showing a domed temple beneath a luminous sky","caption":"A light for revelation"},
+    {"id":"month-03","src":"assets/art/month-03-lent.jpg","title":"Great Lent","alt":"Original dark devotional artwork centered on an Orthodox cross and a path of small lights","caption":"Return in stillness"},
+    {"id":"month-04","src":"assets/art/month-04-pascha.jpg","title":"Pascha","alt":"Original burgundy and gold devotional artwork with a radiant Orthodox cross","caption":"Christ is risen"},
+    {"id":"month-05","src":"assets/art/month-05-ascension.jpg","title":"Ascension","alt":"Original blue and gold devotional artwork with rising rays and a luminous medallion","caption":"Lift up your hearts"},
+    {"id":"month-06","src":"assets/art/month-06-pentecost.jpg","title":"Pentecost","alt":"Original green and gold devotional artwork with twelve flames surrounding a luminous center","caption":"The Spirit gives life"},
+    {"id":"month-07","src":"assets/art/month-07-apostles.jpg","title":"Apostles","alt":"Original blue and gold devotional artwork showing a gathering of apostolic figures","caption":"Sent into all the world"},
+    {"id":"month-08","src":"assets/art/month-08-transfiguration.jpg","title":"Transfiguration","alt":"Original mountain scene filled with gold rays and a central light","caption":"The uncreated light"},
+    {"id":"month-09","src":"assets/art/month-09-cross.jpg","title":"The Precious Cross","alt":"Original wine and gold devotional artwork centered on an Orthodox cross","caption":"Before Thy Cross we bow down"},
+    {"id":"month-10","src":"assets/art/month-10-protection.jpg","title":"The Protection","alt":"Original blue and gold devotional artwork suggesting a protective veil over the faithful","caption":"Shelter under mercy"},
+    {"id":"month-11","src":"assets/art/month-11-archangels.jpg","title":"The Bodiless Powers","alt":"Original midnight blue and gold devotional artwork suggesting wings and heavenly light","caption":"Messengers of the Most High"},
+    {"id":"month-12","src":"assets/art/month-12-nativity.jpg","title":"The Nativity","alt":"Original midnight blue and gold devotional artwork with a bright star above church domes","caption":"Glory to God in the highest"},
+    {"id":"witness-01","src":"assets/art/witness-01-catacomb.jpg","title":"The Witnesses","alt":"Original dark gold devotional artwork showing catacomb arches and a small cross","caption":"Faith beneath the empire"},
+    {"id":"witness-02","src":"assets/art/witness-02-lamps.jpg","title":"The Martyrs","alt":"Original dark devotional artwork showing a procession of glowing lamps","caption":"Their lamps were not extinguished"},
+    {"id":"history-01","src":"assets/art/history-01-council.jpg","title":"Council","alt":"Original historical illustration showing a semicircle of bishops gathered in council","caption":"The Church gathers in truth"},
+    {"id":"history-02","src":"assets/art/history-02-manuscript.jpg","title":"Manuscript","alt":"Original historical illustration of an illuminated manuscript page","caption":"Memory written by hand"},
+    {"id":"history-03","src":"assets/art/history-03-monastery.jpg","title":"Monastery","alt":"Original historical illustration of gold-domed monastic buildings","caption":"Prayer across the centuries"},
+    {"id":"history-04","src":"assets/art/history-04-pilgrimage.jpg","title":"Pilgrimage","alt":"Original historical illustration of pilgrims walking a mountain road","caption":"The road toward the holy place"}
+  ]
+}

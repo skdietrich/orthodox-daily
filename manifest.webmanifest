@@ -1,0 +1,38 @@
+{
+  "name": "Orthodox Daily — Prayer, Saints & Memory",
+  "short_name": "Orthodox Daily",
+  "description": "Offline Orthodox prayer, saints, martyrs, history, fasting guidance, and calendar through 2030.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0a17",
+  "theme_color": "#5c1b2e",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/art/month-04-pascha.jpg",
+      "sizes": "1600x900",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Orthodox Daily Pascha visual meditation"
+    },
+    {
+      "src": "assets/art/history-02-manuscript.jpg",
+      "sizes": "1600x900",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Orthodox history visual archive"
+    }
+  ]
+}
