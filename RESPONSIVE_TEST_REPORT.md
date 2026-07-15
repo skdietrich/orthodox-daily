@@ -1,24 +1,28 @@
-# Responsive Test Report
+# Responsive and Functional Test Report
 
-Build 1.2.0 was exercised in a headless Chromium browser with local assets and JSON requests intercepted from the packaged project.
+Build **1.3.0** was exercised in headless Chromium using the packaged local HTML, CSS, JavaScript, JSON, artwork, and holy-icon files. Production assets were loaded from the project; the test harness substituted browser storage only so repeatable local church workflows could be tested without altering a real browser profile.
 
-Tested viewport classes:
+| Device class | Viewport | Horizontal overflow | Result |
+|---|---:|---:|---|
+| Compact iPhone | 375 × 667 | None | Passed |
+| Large iPhone | 430 × 932 | None | Passed |
+| Android phone | 412 × 915 | None | Passed |
+| iPad / Android tablet | 820 × 1180 | None | Passed |
+| Mac laptop | 1440 × 900 | None | Passed |
+| Windows FHD laptop/desktop | 1920 × 1080 | None | Passed |
+| 4K monitor | 3840 × 2160 | None | Passed |
 
-- 375 × 667 — compact iPhone-class display
-- 430 × 932 — large iPhone-class display
-- 412 × 915 — Android phone-class display
-- 820 × 1180 — iPad/tablet-class display
-- 1440 × 900 — Mac laptop-class display
-- 1920 × 1080 — Windows desktop/laptop display
-- 3840 × 2160 — 4K monitor
+Checks performed:
 
-Checks performed at every size:
+- The Local Churches tab remained visible and usable.
+- A church could be added, marked primary, and displayed on the Today dashboard.
+- A Divine Liturgy/service event could be added and marked on the month calendar.
+- `.ics` event import and export passed.
+- The Holy Icons view loaded all 19 genuine local icon images.
+- Theotokos and Archangel priority presentation rendered correctly.
+- Icon search, category filtering, daily icon matching, and martyr-icon matching passed.
+- The Martyrs view rendered all 70 profiles, and no “About the Martyr” text reached 150 characters.
+- The Today view advanced after simulated local midnight only when it was following Today.
+- No JavaScript console errors or missing production assets were detected in the tested workflows.
 
-- Application initialized without JavaScript console errors
-- Today view rendered local data
-- Martyrs view rendered all 70 profiles
-- No “About the Martyr” text reached 150 characters
-- No horizontal page overflow on Today or Martyrs views
-- Images, search controls, navigation, and cards remained within the viewport
-
-The CSS also includes safe-area padding for notched Apple devices, coarse-pointer touch targets, reduced-motion handling, portrait/landscape adjustments, fluid images, and large-display width caps.
+The CSS includes Apple safe-area padding, touch-sized controls, fluid images, `object-fit: contain` for uncropped sacred icons, coarse-pointer support, reduced-motion handling, portrait/landscape adjustments, mobile navigation scrolling, laptop width constraints, and restrained ultrawide/4K content widths.

@@ -1,41 +1,69 @@
 ORTHODOX DAILY — BUILD VERIFICATION REPORT
-Build: 1.2.0
+Build: 1.3.0
 Data window: 2026-01-01 through 2030-12-31
 
-PASSED
-- Required project files present
-- Manifest JSON valid
-- 192x192 and 512x512 install icons valid
+PASSED — DATA AND CONTENT
 - 366 fixed calendar keys present
 - 1,826 civil-day records present across 2026–2030
-- Pascha dates match the checked project table
+- Five checked Pascha dates present in the annual data files
 - 115 curated principal fixed-date entries
-- 70 martyr memorial records
-- 70 expanded martyr profiles
+- 70 martyr memorial records and 70 expanded martyr profiles
 - Every martyr profile includes a commemoration date, life/martyrdom dating, place, and concise biography
 - Longest “About the Martyr” text: 115 characters
 - Maximum permitted “About the Martyr” text: 149 characters
-- 41 historical spotlights
-- 14 prayers
-- 10 daily practices
-- 18 full-size local content images totaling 9,153,266 bytes
-- Service worker references 41 valid offline resources
-- Runtime files contain no external HTTP dependencies
-- 62 JavaScript-to-HTML bindings verified
-- JavaScript syntax checks passed with Node.js
-- Local static HTTP requests returned successfully
-- Responsive browser tests passed at 375x667, 430x932, 412x915, 820x1180, 1440x900, 1920x1080, and 3840x2160
-- No horizontal page overflow detected on Today or Martyrs views at any tested viewport
-- No individual project file approaches the 23 MiB limit
+- 41 historical spotlights, 14 prayers, and 10 daily practices
+- 18 full-size local atmospheric content images totaling 9,153,266 bytes
+- 19 locally stored genuine Orthodox icon images totaling 5,183,760 bytes
+- Priority icon set includes five Theotokos images and Archangels Michael and Gabriel
+- Icon source page, reuse status, era, caption, aliases, and local path retained for every icon
+- 2,400×2,500 icon-library contact sheet generated and verified
 
+PASSED — LOCAL CHURCHES CALENDAR
+- Local Churches is visible in the primary navigation
+- Selected-day parish summary is visible on the Today dashboard
+- Local church directory, primary-parish selection, website links, and calendar links work
+- Manual service and parish-event creation works
+- Standard VEVENT .ics import and local .ics export work
+- Local church events are marked in the month calendar
+- Churches and events are included in JSON backup and restoration
+- Church data remains in browser localStorage and is not uploaded by the app
+
+PASSED — APPLICATION AND OFFLINE OPERATION
+- Manifest JSON valid
+- 192×192 and 512×512 install icons valid
+- Service worker references 61 valid offline app-shell resources
+- The 19 icon images are included in the offline cache
+- Runtime files contain no required external HTTP dependencies
+- 29 Local Churches/Holy Icons interface controls verified
+- 91 JavaScript-to-HTML bindings verified
+- JavaScript syntax check passed with Node.js
+- Local static HTTP requests returned 200 for HTML, CSS, JavaScript, JSON, manifest, service worker, Theotokos, and Archangel files
+- Complete daily content advances after local midnight while the app is following Today
+- A deliberately selected historical date remains selected across midnight
+- Dates after 2030 produce an update-required notice rather than silently returning to 2026
+
+PASSED — RESPONSIVE AND FUNCTIONAL TESTS
+- Tested at 375×667, 430×932, 412×915, 820×1180, 1440×900, 1920×1080, and 3840×2160
+- No horizontal page overflow at any tested viewport
+- Today, Holy Icons, Local Churches, and Martyrs interfaces render and remain usable
+- Real icon matching works for daily commemorations and martyr profiles
+- Icon search and category filtering work
+- Local church and event workflows work at production viewport classes
+- Apple safe-area spacing, touch targets, reduced-motion handling, portrait/landscape adjustments, and 4K width caps are present
+
+FILE-SIZE VERIFICATION
 Largest project file:
-assets/art/month-11-archangels.jpg — 564,316 bytes
+ICON_PREVIEW.jpg — 1,195,978 bytes
+
+Largest in-app icon image:
+assets/icons/forty-martyrs-sebaste.jpg — 920,795 bytes
 
 File-size ceiling:
 24,117,248 bytes (23 MiB)
 
 NOTES
+- Local church calendars are user-managed offline data. The app stores published parish-calendar links and imports user-selected .ics files; it does not silently scrape remote parish sites.
 - Approximate historical dates are marked with “c.”
-- Entries with sparse surviving traditions use cautious language rather than invented certainty
-- Jurisdictional calendars may list additional martyrs and commemorations
-- Run `python tools/verify_project.py` after any content or code changes
+- Entries with sparse surviving traditions use cautious language rather than invented certainty.
+- Jurisdictional calendars may list additional saints, martyrs, services, and fasting details.
+- Run `python tools/verify_project.py` after any content or code change.

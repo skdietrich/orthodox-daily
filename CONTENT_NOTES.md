@@ -35,4 +35,13 @@ To create a jurisdiction-specific edition, replace the jurisdictional notices in
 
 ## Visual artwork
 
-Version 1.1 includes eighteen original 1600×900 JPEG illustrations created specifically for the application. They are labeled as original devotional artwork in the interface and in `data/images.json`. They should not be represented as canonical Orthodox icons, historical photographs, or documentary evidence.
+The app includes eighteen original 1600×900 JPEG illustrations created specifically for the application. They are labeled as original devotional artwork in the interface and in `data/images.json`. They should not be represented as canonical Orthodox icons, historical photographs, or documentary evidence.
+
+
+## Genuine icon library
+
+Version 1.3 adds nineteen locally stored derivatives of genuine Orthodox icon images. Five Theotokos icons and the Archangels Michael and Gabriel receive the highest display priorities. These files remain distinct from the app’s original atmospheric artwork, and each icon retains a Wikimedia Commons source page and reuse-status note in `data/icons.json` and `ICON_INVENTORY.md`.
+
+## Local Churches calendar
+
+The Local Churches section is an offline personal parish directory and event calendar. It stores churches, primary-parish selection, services, parish events, and imported standard `VEVENT` data in the browser. It does not silently fetch or republish a parish’s remote calendar; published website and calendar links open only when selected by the user.

@@ -38,12 +38,15 @@ REQUIRED = [
     "data/prayers.json",
     "data/practices.json",
     "data/images.json",
+    "data/icons.json",
     "data/martyrs.json",
     "tools/generate_art.py",
     "README.md",
     "SOURCES.md",
     "CONTENT_NOTES.md",
     "IMAGE_INVENTORY.md",
+    "ICON_INVENTORY.md",
+    "ICON_PREVIEW.jpg",
     "ART_PREVIEW.jpg",
     "LICENSE",
     ".nojekyll",
@@ -133,6 +136,92 @@ def check_content_images() -> tuple[int, int]:
         total_bytes += size
     return len(images), total_bytes
 
+
+
+def check_icon_images() -> tuple[int, int, int]:
+    payload = read_json("data/icons.json")
+    icons = payload.get("icons")
+    if not isinstance(icons, list) or len(icons) < 19:
+        fail("icons.json must describe at least 19 genuine local icon images")
+    ids = set()
+    total_bytes = 0
+    categories = {"theotokos": 0, "archangels": 0, "saints": 0, "martyrs": 0}
+    service_worker = (ROOT / "service-worker.js").read_text(encoding="utf-8")
+    for icon in icons:
+        icon_id = icon.get("id")
+        src = icon.get("src")
+        category = icon.get("category")
+        if not icon_id or icon_id in ids:
+            fail("Icon IDs must be unique and non-empty")
+        ids.add(icon_id)
+        if category not in categories:
+            fail(f"Invalid icon category for {icon_id}: {category}")
+        categories[category] += 1
+        if not isinstance(src, str) or not src.startswith("assets/icons/"):
+            fail(f"Invalid local icon path for {icon_id}")
+        path = ROOT / src
+        if not path.exists():
+            fail(f"Icon image missing: {src}")
+        size = path.stat().st_size
+        if size < 80_000:
+            fail(f"Icon image is suspiciously small: {src} ({size:,} bytes)")
+        width, height = jpeg_dimensions(path)
+        if max(width, height) < 900 or min(width, height) < 600:
+            fail(f"Icon image resolution is too small: {src} ({width}x{height})")
+        for field in ("title", "subject", "alt", "caption", "era", "license", "sourcePage"):
+            if not isinstance(icon.get(field), str) or not icon[field].strip():
+                fail(f"Icon metadata field {field} is missing for {icon_id}")
+        if not icon["sourcePage"].startswith("https://commons.wikimedia.org/"):
+            fail(f"Icon source must be a Wikimedia Commons page: {icon_id}")
+        if not isinstance(icon.get("aliases"), list) or not icon["aliases"]:
+            fail(f"Icon aliases are missing for {icon_id}")
+        if f'"./{src}"' not in service_worker:
+            fail(f"Icon image is not cached offline: {src}")
+        total_bytes += size
+    if categories["theotokos"] < 5:
+        fail("The icon library must prioritize at least five Theotokos images")
+    if categories["archangels"] < 2:
+        fail("The icon library must include Archangels Michael and Gabriel")
+    priorities = sorted((icon.get("priority", 0), icon.get("category")) for icon in icons)[-7:]
+    if sum(category in {"theotokos", "archangels"} for _, category in priorities) < 6:
+        fail("Theotokos and archangels are not sufficiently prioritized in icons.json")
+    return len(icons), total_bytes, max(path.stat().st_size for path in (ROOT / "assets/icons").glob("*.jpg"))
+
+
+def check_icon_preview() -> tuple[int, int, int]:
+    path = ROOT / "ICON_PREVIEW.jpg"
+    size = path.stat().st_size
+    width, height = jpeg_dimensions(path)
+    if size < 500_000:
+        fail(f"Icon preview is suspiciously small: {size:,} bytes")
+    if width < 2000 or height < 2000:
+        fail(f"Icon preview resolution is too small: {width}x{height}")
+    return width, height, size
+
+
+def check_local_church_ui() -> int:
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    js = (ROOT / "js/app.js").read_text(encoding="utf-8")
+    required_ids = {
+        "todayChurchSummary", "churchForm", "churchName", "churchJurisdiction", "churchCity",
+        "churchWebsite", "churchCalendarUrl", "churchNotes", "churchPrimary", "churchList",
+        "churchCount", "churchEventForm", "eventChurch", "eventTitle", "eventDate", "eventStart",
+        "eventEnd", "eventNotes", "icsChurchSelect", "icsImport", "exportIcs", "churchEventList",
+        "churchEventCount", "todayIconGallery", "priorityIconStrip", "iconSearch", "iconCategory",
+        "iconCount", "iconGallery"
+    }
+    html_ids = set(re.findall(r'id="([^"]+)"', html))
+    missing = sorted(required_ids - html_ids)
+    if missing:
+        fail("Local church/icon interface IDs are missing: " + ", ".join(missing))
+    for feature in ("renderChurches", "renderTodayChurches", "importIcsFile", "exportIcsCalendar", "renderIcons"):
+        if f"function {feature}" not in js:
+            fail(f"Required interface function is missing: {feature}")
+    if 'data-view="churches"' not in html or 'data-view-panel="churches"' not in html:
+        fail("The Local Churches navigation or view panel is not visible")
+    if 'data-view="icons"' not in html or 'data-view-panel="icons"' not in html:
+        fail("The Holy Icons navigation or view panel is not visible")
+    return len(required_ids)
 
 def check_dom_bindings() -> int:
     html = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -313,10 +402,30 @@ def check_service_worker() -> int:
 
 
 def check_no_runtime_external_dependencies() -> None:
-    for relative in ("index.html", "404.html", "css/styles.css", "js/app.js", "js/astronomy.js", "service-worker.js"):
+    html_patterns = [
+        r'<script[^>]+src=["\']https?://',
+        r'<link[^>]+href=["\']https?://',
+        r'<img[^>]+src=["\']https?://',
+        r'<iframe[^>]+src=["\']https?://',
+    ]
+    css_patterns = [r'url\(\s*["\']?https?://', r'@import\s+["\']https?://']
+    js_patterns = [
+        r'fetch\(\s*["\']https?://',
+        r'import\(\s*["\']https?://',
+        r'navigator\.serviceworker\.register\(\s*["\']https?://',
+    ]
+    checks = {
+        "index.html": html_patterns,
+        "404.html": html_patterns,
+        "css/styles.css": css_patterns,
+        "js/app.js": js_patterns,
+        "js/astronomy.js": js_patterns,
+        "service-worker.js": js_patterns,
+    }
+    for relative, patterns in checks.items():
         text = (ROOT / relative).read_text(encoding="utf-8").lower()
-        if "http://" in text or "https://" in text:
-            fail(f"Runtime file contains an external URL: {relative}")
+        if any(re.search(pattern, text) for pattern in patterns):
+            fail(f"Runtime file contains an external dependency: {relative}")
 
 
 def main() -> int:
@@ -329,6 +438,9 @@ def main() -> int:
         daily_records = check_years()
         history, prayers, practices = check_other_data()
         content_images, image_bytes = check_content_images()
+        icon_images, icon_bytes, largest_icon = check_icon_images()
+        preview_width, preview_height, preview_bytes = check_icon_preview()
+        church_ui_bindings = check_local_church_ui()
         dom_bindings = check_dom_bindings()
         shell_count = check_service_worker()
         check_no_runtime_external_dependencies()
@@ -345,6 +457,9 @@ def main() -> int:
     print(f"  Prayers: {prayers}")
     print(f"  Daily practices: {practices}")
     print(f"  Full-size local content images: {content_images} ({image_bytes:,} bytes total)")
+    print(f"  Genuine local icon images: {icon_images} ({icon_bytes:,} bytes total; largest {largest_icon:,} bytes)")
+    print(f"  Icon-library preview: {preview_width}x{preview_height} ({preview_bytes:,} bytes)")
+    print(f"  Local church/icon interface controls: {church_ui_bindings}")
     print(f"  Verified JavaScript-to-HTML bindings: {dom_bindings}")
     print(f"  Offline app-shell resources: {shell_count}")
     print(f"  Largest file: {largest_path.relative_to(ROOT)} ({largest_size:,} bytes)")

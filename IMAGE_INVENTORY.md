@@ -26,3 +26,7 @@ All content images are original local JPEG files. They are not remote placeholde
 **Total content-image bytes:** 9,153,266
 
 The build verifier fails if an image is missing, below 1200×675, or under 250 KB.
+
+## Separate holy-icon library
+
+The original artwork above is distinct from the 19 genuine icon images under `assets/icons/`. See `ICON_INVENTORY.md` for each icon’s local dimensions, size, era, reuse status, and Wikimedia Commons source page.

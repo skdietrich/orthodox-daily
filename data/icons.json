@@ -1,0 +1,372 @@
+{
+  "version": 1,
+  "note": "Local display-optimized derivatives of genuine Orthodox icon images. Source and license details are retained per entry and in THIRD_PARTY_NOTICES.md.",
+  "icons": [
+    {
+      "id": "theotokos-vladimir",
+      "title": "Theotokos of Vladimir",
+      "subject": "The Most Holy Theotokos and Ever-Virgin Mary",
+      "category": "theotokos",
+      "src": "assets/icons/theotokos-vladimir.jpg",
+      "alt": "Traditional Orthodox icon of the Theotokos of Vladimir holding Christ",
+      "caption": "The Vladimir Theotokos, an Eleusa icon of the Mother of God and Christ Child.",
+      "era": "Medieval Byzantine tradition",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Vladimirskaya.jpg",
+      "priority": 100,
+      "aliases": [
+        "theotokos",
+        "mother of god",
+        "virgin mary",
+        "mary",
+        "ever-virgin",
+        "vladimir"
+      ]
+    },
+    {
+      "id": "theotokos-hodegetria",
+      "title": "Theotokos Hodegetria",
+      "subject": "The Most Holy Theotokos and Christ",
+      "category": "theotokos",
+      "src": "assets/icons/theotokos-hodegetria-serbia.jpg",
+      "alt": "Fourteenth-century Serbian icon of the Theotokos Hodegetria",
+      "caption": "The Hodegetria, the Mother of God who points to Christ as the Way.",
+      "era": "14th century, Serbia",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Theotokos_Hodegetria_14th_c_Serbia.jpg",
+      "priority": 97,
+      "aliases": [
+        "hodegetria",
+        "presentation of the theotokos",
+        "entry of the theotokos",
+        "theotokos"
+      ]
+    },
+    {
+      "id": "theotokos-passion",
+      "title": "Theotokos of the Passion",
+      "subject": "The Most Holy Theotokos and Christ",
+      "category": "theotokos",
+      "src": "assets/icons/theotokos-passion.jpg",
+      "alt": "Orthodox icon of the Theotokos of the Passion",
+      "caption": "The Mother of God holds Christ while angels present the instruments of the Passion.",
+      "era": "17th century",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Theotokos_of_the_Passion.jpg",
+      "priority": 96,
+      "aliases": [
+        "passion",
+        "akathist",
+        "theotokos",
+        "mother of god"
+      ]
+    },
+    {
+      "id": "theotokos-dormition",
+      "title": "Dormition of the Theotokos",
+      "subject": "The Dormition of the Most Holy Theotokos",
+      "category": "theotokos",
+      "src": "assets/icons/theotokos-dormition-ritzos.jpg",
+      "alt": "Icon of the Dormition of the Theotokos attributed to Andreas Ritzos",
+      "caption": "The Dormition of the Theotokos, with Christ receiving the soul of His Mother.",
+      "era": "15th century, Andreas Ritzos",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dormition_of_Theotokos_Andreas_Ritzos.jpg",
+      "priority": 99,
+      "aliases": [
+        "dormition",
+        "falling asleep",
+        "assumption",
+        "august 15"
+      ]
+    },
+    {
+      "id": "theotokos-nativity",
+      "title": "Nativity of the Theotokos",
+      "subject": "The Nativity of the Most Holy Theotokos",
+      "category": "theotokos",
+      "src": "assets/icons/theotokos-nativity.jpg",
+      "alt": "Orthodox icon of the Nativity of the Theotokos",
+      "caption": "The birth of the Theotokos to Saints Joachim and Anna.",
+      "era": "18th century",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nativity_of_Theotokos.jpg",
+      "priority": 98,
+      "aliases": [
+        "nativity of the theotokos",
+        "birth of the theotokos",
+        "joachim and anna",
+        "september 8"
+      ]
+    },
+    {
+      "id": "archangel-michael",
+      "title": "Archangel Michael",
+      "subject": "The Holy Archangel Michael",
+      "category": "archangels",
+      "src": "assets/icons/archangel-michael.jpg",
+      "alt": "Orthodox icon of the Archangel Michael",
+      "caption": "The Archangel Michael, commander of the bodiless hosts.",
+      "era": "Traditional Orthodox icon",
+      "license": "CC0 1.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Icon_of_Archangel_Michael.jpg",
+      "priority": 95,
+      "aliases": [
+        "archangel michael",
+        "michael",
+        "synaxis of the archangel",
+        "bodiless powers",
+        "heavenly hosts",
+        "archangels"
+      ]
+    },
+    {
+      "id": "archangel-gabriel",
+      "title": "Archangel Gabriel",
+      "subject": "The Holy Archangel Gabriel",
+      "category": "archangels",
+      "src": "assets/icons/archangel-gabriel.jpg",
+      "alt": "Orthodox icon of the Archangel Gabriel in blue and red",
+      "caption": "The Archangel Gabriel, messenger of the Annunciation.",
+      "era": "13th-century Sinai tradition",
+      "license": "CC0 1.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Archangel_Gabriel_Icon_in_Blue_and_Red.png",
+      "priority": 94,
+      "aliases": [
+        "archangel gabriel",
+        "gabriel",
+        "annunciation",
+        "bodiless powers",
+        "archangels"
+      ]
+    },
+    {
+      "id": "saint-john-baptist",
+      "title": "Saint John the Baptist",
+      "subject": "The Holy Prophet, Forerunner, and Baptist John",
+      "category": "saints",
+      "src": "assets/icons/saint-john-baptist.jpg",
+      "alt": "Orthodox icon of Saint John the Baptist",
+      "caption": "Saint John the Forerunner and Baptist of the Lord.",
+      "era": "Traditional Orthodox icon",
+      "license": "Public domain dedication",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Saint_John_the_Baptist.JPG",
+      "priority": 91,
+      "aliases": [
+        "john the baptist",
+        "john the forerunner",
+        "forerunner",
+        "beheading of john",
+        "nativity of john"
+      ]
+    },
+    {
+      "id": "saint-nicholas",
+      "title": "Saint Nicholas the Wonderworker",
+      "subject": "Saint Nicholas, Archbishop of Myra",
+      "category": "saints",
+      "src": "assets/icons/saint-nicholas.jpg",
+      "alt": "Orthodox icon of Saint Nicholas the Wonderworker in Batumi",
+      "caption": "Saint Nicholas the Wonderworker, Archbishop of Myra in Lycia.",
+      "era": "Traditional icon photographed in Batumi",
+      "license": "CC0 1.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:The_Orthodox_icon_of_Saint_Nicholas_the_Wonderworker.jpg",
+      "priority": 90,
+      "aliases": [
+        "saint nicholas",
+        "st nicholas",
+        "nicholas the wonderworker",
+        "nicholas of myra"
+      ]
+    },
+    {
+      "id": "saint-george",
+      "title": "Great Martyr George",
+      "subject": "The Holy Great Martyr George the Victory-Bearer",
+      "category": "martyrs",
+      "src": "assets/icons/saint-george.jpg",
+      "alt": "Orthodox icon of Saint George the Victory-Bearer",
+      "caption": "The Great Martyr George, called the Victory-Bearer.",
+      "era": "Traditional icon photographed in Batumi",
+      "license": "CC0 1.0",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Saint_George_the_Victory-bearer._Orthodox_icon.jpg",
+      "priority": 89,
+      "aliases": [
+        "great martyr george",
+        "martyr george",
+        "george of iberia",
+        "saint george",
+        "st george"
+      ]
+    },
+    {
+      "id": "saint-demetrius",
+      "title": "Great Martyr Demetrius",
+      "subject": "The Holy Great Martyr Demetrius of Thessalonica",
+      "category": "martyrs",
+      "src": "assets/icons/saint-demetrius.jpg",
+      "alt": "Bulgarian Orthodox icon of Saint Demetrius",
+      "caption": "The Great Martyr Demetrius of Thessalonica.",
+      "era": "1824, Bulgarian icon",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Saint_Demetrius_(bulgarian_icon).jpg",
+      "priority": 88,
+      "aliases": [
+        "great martyr demetrius",
+        "demetrius",
+        "dimitrios",
+        "demetrios"
+      ]
+    },
+    {
+      "id": "saint-catherine",
+      "title": "Great Martyr Catherine",
+      "subject": "The Holy Great Martyr Catherine of Alexandria",
+      "category": "martyrs",
+      "src": "assets/icons/saint-catherine.jpg",
+      "alt": "Orthodox icon of Saint Catherine by Toma Vishanov",
+      "caption": "The Great Martyr Catherine of Alexandria.",
+      "era": "Early 19th century, Toma Vishanov",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Saint_Catherine_Icon_by_Toma_Vishanov.jpg",
+      "priority": 87,
+      "aliases": [
+        "great martyr catherine",
+        "martyr catherine",
+        "catherine of alexandria",
+        "saint catherine"
+      ]
+    },
+    {
+      "id": "saint-barbara",
+      "title": "Great Martyr Barbara",
+      "subject": "The Holy Great Martyr Barbara",
+      "category": "martyrs",
+      "src": "assets/icons/saint-barbara.jpg",
+      "alt": "Traditional Greek Orthodox icon of Saint Barbara",
+      "caption": "The Great Martyr Barbara of Heliopolis.",
+      "era": "Traditional Greek Orthodox icon",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Saint-Barbara-Grk-ikon.png",
+      "priority": 87,
+      "aliases": [
+        "great martyr barbara",
+        "martyr barbara",
+        "saint barbara",
+        "st barbara"
+      ]
+    },
+    {
+      "id": "saint-tatiana",
+      "title": "Martyr Tatiana",
+      "subject": "The Holy Martyr Tatiana of Rome",
+      "category": "martyrs",
+      "src": "assets/icons/saint-tatiana.jpg",
+      "alt": "Nineteenth-century Russian Orthodox icon of Saint Tatiana",
+      "caption": "The Martyr Tatiana of Rome.",
+      "era": "19th century, Russia",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Tatiana.jpg",
+      "priority": 86,
+      "aliases": [
+        "martyr tatiana",
+        "tatiana",
+        "tatiana of rome"
+      ]
+    },
+    {
+      "id": "forty-martyrs-sebaste",
+      "title": "Forty Martyrs of Sebaste",
+      "subject": "The Holy Forty Martyrs of Sebaste",
+      "category": "martyrs",
+      "src": "assets/icons/forty-martyrs-sebaste.jpg",
+      "alt": "Eighteenth-century Aleppo icon of the Forty Martyrs of Sebaste",
+      "caption": "The Forty Martyrs of Sebaste enduring the frozen lake.",
+      "era": "18th century, Aleppo",
+      "license": "Public domain (PD-Ottoman)",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Forty_Martyrs_of_Sebaste_icon,_Aleppo.jpg",
+      "priority": 86,
+      "aliases": [
+        "forty martyrs of sebaste",
+        "forty martyrs",
+        "five martyrs of sebaste",
+        "sebaste"
+      ]
+    },
+    {
+      "id": "saint-panteleimon",
+      "title": "Great Martyr Panteleimon",
+      "subject": "The Holy Great Martyr and Unmercenary Healer Panteleimon",
+      "category": "martyrs",
+      "src": "assets/icons/saint-panteleimon.jpg",
+      "alt": "Thirteenth-century icon of Saint Panteleimon from Saint Catherine's Monastery",
+      "caption": "The Great Martyr Panteleimon, physician and unmercenary healer.",
+      "era": "Before the 13th century, Sinai",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:St_Panteleimon.jpg",
+      "priority": 86,
+      "aliases": [
+        "great martyr panteleimon",
+        "martyr panteleimon",
+        "panteleimon",
+        "pantaleon"
+      ]
+    },
+    {
+      "id": "saint-ignatius",
+      "title": "Hieromartyr Ignatius",
+      "subject": "Saint Ignatius the God-Bearer of Antioch",
+      "category": "martyrs",
+      "src": "assets/icons/saint-ignatius.jpg",
+      "alt": "Orthodox icon of Saint Ignatius of Antioch",
+      "caption": "The Hieromartyr Ignatius the God-Bearer of Antioch.",
+      "era": "Traditional Orthodox icon",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Ignatius_of_Antioch_2.jpg",
+      "priority": 85,
+      "aliases": [
+        "hieromartyr ignatius",
+        "ignatius of antioch",
+        "ignatius",
+        "god-bearer"
+      ]
+    },
+    {
+      "id": "saint-paraskeva",
+      "title": "Saint Paraskeva",
+      "subject": "The Holy Martyr Paraskeva",
+      "category": "martyrs",
+      "src": "assets/icons/saint-paraskeva.jpg",
+      "alt": "Novgorod-school icon of Saint Paraskeva",
+      "caption": "Saint Paraskeva, venerated as a steadfast witness of Christ.",
+      "era": "c. 1400–1600, Novgorod school",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Russian_icon_of_St._Paraskeva,_Palmer_Museum_of_Art.jpg",
+      "priority": 84,
+      "aliases": [
+        "paraskeva",
+        "parascheva",
+        "petka",
+        "martyr paraskeva"
+      ]
+    },
+    {
+      "id": "saint-anastasia",
+      "title": "Great Martyr Anastasia",
+      "subject": "The Holy Great Martyr Anastasia the Deliverer from Potions",
+      "category": "martyrs",
+      "src": "assets/icons/saint-anastasia.jpg",
+      "alt": "Orthodox icon of Saint Anastasia of Sirmium",
+      "caption": "The Great Martyr Anastasia of Sirmium, called the Deliverer from Potions.",
+      "era": "Traditional Orthodox icon",
+      "license": "Public domain",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Saint_Anastasia.jpg",
+      "priority": 84,
+      "aliases": [
+        "anastasia",
+        "anastasia of sirmium",
+        "deliverer from potions"
+      ]
+    }
+  ]
+}

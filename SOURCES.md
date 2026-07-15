@@ -34,3 +34,11 @@ Calendar use should remain connected to a real Orthodox parish and its appointed
 ## Original visual library
 
 All files under `assets/art/` were created specifically for Orthodox Daily. They have no external image-hosting dependency and require no third-party attribution. See `IMAGE_INVENTORY.md` for dimensions and file sizes.
+
+## Genuine Orthodox icon library
+
+The images under `assets/icons/` are locally stored, display-optimized derivatives of genuine icon images whose source pages are on Wikimedia Commons. They are not generated placeholders. The Theotokos and Archangels have the highest display priority in the application.
+
+Source-page and reuse information is retained per record in `data/icons.json` and summarized in `ICON_INVENTORY.md` and `THIRD_PARTY_NOTICES.md`. The running app does not fetch these pages or images; all displayed icon files are packaged locally and cached for offline use.
+
+The icon layout uses containment rather than destructive cropping so the complete sacred image remains visible across phone, tablet, laptop, desktop, ultrawide, and 4K layouts.

@@ -9,8 +9,13 @@
     html,body{height:100%;margin:0}body{display:grid;place-items:center;background:#351216;color:#fff5e3;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:2rem}main{max-width:42rem}a{color:#e1c581}
   </style>
   <script>
-    const target = new URL("./", window.location.href);
-    window.location.replace(target.href);
+    (() => {
+      const parts = window.location.pathname.split("/").filter(Boolean);
+      const projectBase = window.location.hostname.endsWith(".github.io") && parts.length
+        ? `/${parts[0]}/`
+        : "/";
+      window.location.replace(new URL(projectBase, window.location.origin).href);
+    })();
   </script>
 </head>
 <body><main><h1>Orthodox Daily</h1><p>Returning to the application…</p><p><a href="./">Open Orthodox Daily</a></p></main></body>

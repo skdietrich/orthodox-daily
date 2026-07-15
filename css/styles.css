@@ -480,3 +480,245 @@ footer { padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); }
   .martyr-toolbar { display: grid; grid-template-columns: 1fr; }
   .martyr-toolbar #martyrCount { justify-self: start; }
 }
+
+/* v1.3 — genuine icon library and local parish calendars */
+.card-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
+.inline-links, .church-links, .church-actions, .ics-tools {
+  display:flex; flex-wrap:wrap; align-items:center; gap:.65rem;
+}
+.text-link { color:var(--wine); font-weight:800; text-underline-offset:3px; }
+.button.small { min-height:38px; padding:.48rem .78rem; font-size:.78rem; }
+
+.hero-art img.icon-mode {
+  object-fit:contain;
+  padding:clamp(.75rem,2vw,1.35rem);
+  background:radial-gradient(circle at 50% 38%,#5c3340 0,#251218 63%,#10080b 100%);
+}
+.card-image.icon-card-image {
+  object-fit:contain;
+  padding:.65rem;
+  background:linear-gradient(140deg,#2c141b,#6a2a36 55%,#221016);
+}
+
+.today-icon-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.priority-icon-strip {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:.8rem;
+  margin:.25rem 0 1.35rem;
+}
+.icon-gallery {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1rem;
+}
+.icon-card {
+  min-width:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid rgba(126,82,38,.32);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(255,252,245,.98),rgba(234,220,190,.93));
+  box-shadow:var(--shadow);
+}
+.icon-frame {
+  position:relative;
+  display:grid;
+  place-items:center;
+  aspect-ratio:4/5;
+  min-height:0;
+  padding:.65rem;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 38%,rgba(176,119,56,.38),transparent 45%),
+    linear-gradient(145deg,#2a151a,#5b2833 60%,#180d11);
+  border-bottom:3px solid var(--gold);
+}
+.icon-frame::after {
+  content:"";
+  position:absolute;
+  inset:.42rem;
+  pointer-events:none;
+  border:1px solid rgba(232,202,128,.46);
+  border-radius:10px;
+}
+.icon-frame img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.38));
+}
+.icon-card figcaption { display:grid; gap:.28rem; padding:.85rem .9rem 1rem; }
+.icon-card figcaption strong { font-family:var(--serif); font-size:1.04rem; color:var(--wine-dark); }
+.icon-card figcaption span { color:var(--ink); line-height:1.45; font-size:.84rem; }
+.icon-card figcaption small { color:var(--muted); line-height:1.4; }
+.icon-card.compact figcaption { padding:.65rem .7rem .8rem; }
+.icon-card.compact figcaption strong { font-size:.92rem; }
+.icon-card.compact figcaption span { display:none; }
+.icon-card.compact figcaption small { font-size:.66rem; }
+.priority-icon-strip .icon-frame { aspect-ratio:3/4; padding:.4rem; }
+#martyrVisuals { grid-template-columns:repeat(6,minmax(0,1fr)); }
+#martyrVisuals .icon-card { box-shadow:none; }
+#martyrVisuals .icon-frame { aspect-ratio:3/4; }
+.icon-toolbar { align-items:center; }
+.icon-toolbar input { flex:1 1 440px; }
+.icon-toolbar select { flex:0 1 260px; }
+.icon-source-note { margin-top:1.1rem; }
+.archive-thumb.icon-thumb {
+  height:118px;
+  object-fit:contain;
+  padding:.3rem;
+  background:linear-gradient(145deg,#2b151a,#5c2833);
+  border-color:rgba(187,140,54,.55);
+}
+
+.churches-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.stack-form { display:grid; gap:.9rem; }
+.stack-form label, .ics-tools label:not(.file-button) {
+  display:grid;
+  gap:.38rem;
+  min-width:0;
+  color:var(--wine-dark);
+  font-weight:800;
+  font-size:.84rem;
+}
+.stack-form input, .stack-form select, .stack-form textarea, .ics-tools select {
+  width:100%;
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:.72rem .8rem;
+  background:rgba(255,255,255,.95);
+  color:var(--ink);
+}
+.stack-form textarea { resize:vertical; line-height:1.5; }
+.form-grid { display:grid; gap:.75rem; }
+.form-grid.two-col { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.form-grid.three-col { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.church-list, .church-event-list { display:grid; gap:.8rem; }
+.church-item, .church-event-item {
+  min-width:0;
+  padding:1rem;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:rgba(255,255,255,.58);
+}
+.church-item.primary { border-color:rgba(187,140,54,.65); box-shadow:inset 4px 0 0 var(--gold); }
+.church-item-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:.8rem; }
+.church-item h4, .church-event-item h4 { margin:0; font-family:var(--serif); font-size:1.08rem; }
+.church-item-heading p, .church-event-item p { margin:.28rem 0 0; line-height:1.45; }
+.church-notes, .event-notes { color:var(--muted); font-size:.84rem; }
+.church-actions { margin-top:.8rem; }
+.church-links { margin-top:.65rem; }
+.church-event-item {
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr) 42px;
+  gap:.85rem;
+  align-items:center;
+}
+.church-event-item.compact {
+  grid-template-columns:50px minmax(0,1fr);
+  padding:.75rem;
+  margin-top:.6rem;
+}
+.event-date-block {
+  display:grid;
+  place-items:center;
+  align-content:center;
+  min-height:58px;
+  padding:.38rem;
+  border-radius:12px;
+  background:var(--wine);
+  color:white;
+  line-height:1;
+}
+.event-date-block strong { font-size:1.28rem; }
+.event-date-block span { margin-top:.2rem; font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; }
+.event-delete { background:var(--paper-deep); color:var(--wine); }
+.ics-tools { margin-top:1rem; padding-top:1rem; border-top:1px solid var(--line); align-items:end; }
+.ics-tools label:not(.file-button) { flex:1 1 220px; }
+.today-church-events { margin-top:.7rem; }
+.local-church-summary-card { background:linear-gradient(145deg,rgba(255,252,245,.98),rgba(234,223,198,.94)); }
+
+.calendar-markers { display:flex; align-items:center; gap:4px; margin-top:auto; min-height:8px; }
+.calendar-markers .calendar-dot { margin-top:0; }
+.calendar-local-dot {
+  width:8px;
+  height:8px;
+  border-radius:2px;
+  background:var(--blue);
+  box-shadow:0 0 0 2px rgba(36,71,94,.12);
+}
+
+@media (max-width: 1199px) {
+  .priority-icon-strip { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .icon-gallery { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  #martyrVisuals { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 900px) {
+  .churches-grid { grid-template-columns:1fr; }
+  .icon-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .priority-icon-strip { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .today-icon-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 620px) {
+  .form-grid.two-col, .form-grid.three-col { grid-template-columns:1fr; }
+  .priority-icon-strip { display:flex; overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:.35rem; }
+  .priority-icon-strip .icon-card { flex:0 0 min(72vw,260px); scroll-snap-align:start; }
+  .icon-gallery { grid-template-columns:1fr 1fr; gap:.7rem; }
+  .icon-card figcaption { padding:.65rem; }
+  .icon-card figcaption span { font-size:.76rem; }
+  .today-icon-grid { grid-template-columns:1fr 1fr; gap:.65rem; }
+  #martyrVisuals { display:flex; overflow-x:auto; scroll-snap-type:x proximity; }
+  #martyrVisuals .icon-card { flex:0 0 min(68vw,240px); scroll-snap-align:start; }
+  .church-event-item { grid-template-columns:52px minmax(0,1fr) 42px; gap:.55rem; padding:.75rem; }
+}
+@media (max-width: 430px) {
+  .icon-gallery, .today-icon-grid { grid-template-columns:1fr; }
+  .icon-frame { aspect-ratio:4/4.7; }
+  .church-item-heading { display:grid; }
+  .church-event-item { grid-template-columns:48px minmax(0,1fr); }
+  .church-event-item .event-delete { grid-column:1 / -1; width:100%; border-radius:999px; }
+  .ics-tools > * { width:100%; }
+}
+@media (min-width: 1800px) {
+  .icon-gallery { grid-template-columns:repeat(5,minmax(0,1fr)); }
+  .churches-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (min-width: 2600px) {
+  .icon-gallery { grid-template-columns:repeat(6,minmax(0,1fr)); }
+  .priority-icon-strip { grid-template-columns:repeat(7,minmax(0,1fr)); }
+}
+
+/* Prevent an empty status toast from appearing as a decorative pill. */
+.toast:empty, .toast:not(.show) { visibility:hidden; pointer-events:none; }
+.toast.show { visibility:visible; }
+
+/* Keep checkbox labels horizontal inside stacked forms. */
+.stack-form .check-label {
+  display:flex;
+  grid-template-columns:none;
+  align-items:center;
+  gap:.6rem;
+  font-weight:750;
+  color:var(--muted);
+}
+.stack-form .check-label input[type="checkbox"] {
+  flex:0 0 auto;
+  width:22px;
+  min-width:22px;
+  height:22px;
+  min-height:22px;
+  margin:0;
+  padding:0;
+}
