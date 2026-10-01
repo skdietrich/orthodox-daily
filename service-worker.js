@@ -1,4 +1,4 @@
-const CACHE_NAME = "orthodox-daily-v2.0.0";
+const CACHE_NAME = "orthodox-daily-v2.1.0";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -7,6 +7,7 @@ const APP_SHELL = [
   "./css/styles.css",
   "./css/companion.css",
   "./js/storage.js",
+  "./js/github-sync.js",
   "./js/companion.js",
   "./assets/photos/meteora.jpg",
   "./assets/photos/athos.jpg",
