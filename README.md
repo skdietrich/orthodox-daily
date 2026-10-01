@@ -1,4 +1,7 @@
-# Orthodox Daily
+# Orthodox Daily 2.0
+
+**Start with [UPGRADE_GUIDE.md](UPGRADE_GUIDE.md)** for deployment, new features, privacy, and hosting limits. See [TEST_REPORT.md](TEST_REPORT.md) for release validation.
+
 
 A fully static, installable Orthodox prayer, parish-calendar, holy-icon, and historical calendar app designed for GitHub Pages.
 
@@ -10,7 +13,7 @@ A fully static, installable Orthodox prayer, parish-calendar, holy-icon, and his
 - 115 curated principal fixed-date entries
 - 70 indexed martyr profiles with commemoration date, life/martyrdom dates, place, and a biography capped at 149 characters
 - 41 “On This Date” historical spotlights
-- 14 traditional or clearly labeled original devotional prayers
+- 18 traditional or clearly labeled original devotional prayers
 - Revised/New Calendar and Old/Julian fixed-commemoration display
 - Broad fasting guidance with pastoral and medical cautions
 - **Visible Local Churches Calendar** on the Today dashboard and in its own navigation section
@@ -25,9 +28,9 @@ A fully static, installable Orthodox prayer, parish-calendar, holy-icon, and his
 - Export/import for settings, favorites, journal entries, churches, and local church events
 - Responsive layouts for iPhone/iPad, Android phones/tablets, Windows and Mac laptops, desktop, ultrawide, and 4K displays
 - Progressive Web App installation and offline operation
-- Automatic service-worker refresh when updated files are published
+- Versioned service-worker updates without forcing a reload during writing
 
-There are no CDNs, analytics scripts, advertisements, accounts, remote databases, cloud APIs, or required external data feeds. Links to a parish website or published parish calendar open only when the user selects them.
+The optional read-aloud feature uses the browser speech engine, whose selected voice may require a network connection. There are no app CDNs, analytics scripts, advertisements, accounts, remote databases, cloud APIs, or required external data feeds. Links to a parish website or published parish calendar open only when the user selects them.
 
 ## Important editorial scope
 
@@ -106,7 +109,7 @@ The verifier checks required files, JSON validity, calendar completeness, Pascha
 - `data/practices.json` — short daily practices
 - `data/years/*.json` — generated daily records, movable feasts, fasting, and Pascha
 
-After changing files, change `CACHE_NAME` in `service-worker.js` for an immediate clean cache migration. The network-first service worker will also refresh changed files when the published site is revisited.
+After changing files, change `CACHE_NAME` in `service-worker.js` for an immediate clean cache migration. The versioned cache-first service worker installs a complete release. Bump the cache version for every content update.
 
 ## Date rollover and data window
 

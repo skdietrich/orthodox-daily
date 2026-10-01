@@ -45,3 +45,10 @@ The project includes display-optimized local derivatives of the following Wikime
 | Theotokos of the Passion | `assets/icons/theotokos-passion.jpg` | Public domain | https://commons.wikimedia.org/wiki/File:Theotokos_of_the_Passion.jpg |
 
 No remote icon host is contacted at runtime. Review the linked Commons page if you redistribute an image independently of this application.
+
+## New monastery photographs (version 2.0)
+
+- `assets/photos/meteora.jpg`: **Rousanou Monastery Meteora Landscape**, Dimitris Eleftheriou (Delef38), 9 December 2016. [Original and license record](https://commons.wikimedia.org/wiki/File:Rousanou_Monastery_Meteora_Landscape.jpg). [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Resized from 3072 × 2155 to 2000 × 1403, JPEG compressed, and displayed with CSS cropping and a dark overlay. This image derivative remains CC BY-SA 4.0.
+- `assets/photos/athos.jpg`: **Mount Athos: Monastery Stavronikita, wood and sea (from distance)**, malenki, 13 July 2011. [Original and license record](https://commons.wikimedia.org/wiki/File:Mount_Athos-_Monastery_Stavronikita,_wood_and_sea_(from_distance).jpg). [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) selected from the offered licenses. Resized from 2627 × 1971 to 2000 × 1501, JPEG compressed, and displayed with CSS cropping. This image derivative remains CC BY-SA 3.0.
+
+These image licenses are separate from the MIT code license. Neither photographer endorses this app. The credit line is visible on the home page; full attribution and license links are under About.

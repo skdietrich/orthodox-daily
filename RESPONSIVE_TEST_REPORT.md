@@ -1,3 +1,5 @@
+Historical report for version 1.3.0. See TEST_REPORT.md for version 2.0 validation.
+
 # Responsive and Functional Test Report
 
 Build **1.3.0** was exercised in headless Chromium using the packaged local HTML, CSS, JavaScript, JSON, artwork, and holy-icon files. Production assets were loaded from the project; the test harness substituted browser storage only so repeatable local church workflows could be tested without altering a real browser profile.

@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const APP_VERSION = "1.3.0";
+  const APP_VERSION = "2.0.0";
   const MIN_DATE = "2026-01-01";
   const MAX_DATE = "2030-12-31";
   const DAY_MS = 86400000;
@@ -587,6 +587,8 @@
         </div>
         <h3>${escapeHtml(prayer.title)}</h3>
         <div class="prayer-copy">${escapeHtml(prayer.text)}</div>
+        <p class="fine-print">${escapeHtml(prayer.origin || "Original devotional prayer")}</p>
+        <button class="button quiet" data-session="${escapeHtml(prayer.id)}">Open prayer session ↗</button>
       </article>
     `).join("") : `<div class="empty">No prayers match this filter.</div>`;
     $$("[data-favorite]").forEach(button => button.addEventListener("click", () => toggleFavorite(button.dataset.favorite)));
@@ -660,7 +662,8 @@
   }
 
   function switchView(name) {
-    $$(".tab").forEach(tab => tab.classList.toggle("active", tab.dataset.view === name));
+    const navName = ["home", "prayers", "reflect", "rule"].includes(name) ? name : "explore";
+    $$(".tab").forEach(tab => {tab.classList.toggle("active", tab.dataset.view === navName); if(tab.dataset.view === navName)tab.setAttribute("aria-current","page");else tab.removeAttribute("aria-current");});
     $$("[data-view-panel]").forEach(panel => panel.classList.toggle("active", panel.dataset.viewPanel === name));
     if (name === "calendar") renderCalendar();
     if (name === "churches") renderChurches();
@@ -668,6 +671,7 @@
     if (name === "icons") renderIcons();
     if (name === "martyrs") renderMartyrs();
     if (name === "history") renderHistory();
+    document.dispatchEvent(new CustomEvent("orthodox:view", { detail: name }));
     window.scrollTo({ top: 0, behavior: state.settings.reduceMotion ? "auto" : "smooth" });
   }
 
@@ -759,7 +763,8 @@
       favorites: [...state.favorites],
       journal: getJournal(),
       churches: state.churches,
-      churchEvents: state.churchEvents
+      churchEvents: state.churchEvents,
+      companion: window.OrthodoxStore.snapshot()
     };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
     const link = document.createElement("a");
@@ -776,6 +781,7 @@
     try {
       const payload = JSON.parse(await file.text());
       if (payload.app !== "Orthodox Daily") throw new Error("This is not an Orthodox Daily export.");
+      if (payload.companion) window.OrthodoxStore.validate(payload.companion);
       if (payload.settings && typeof payload.settings === "object") {
         state.settings = { ...state.settings, ...payload.settings };
         saveSettings();
@@ -790,6 +796,7 @@
       if (Array.isArray(payload.churches)) state.churches = payload.churches;
       if (Array.isArray(payload.churchEvents)) state.churchEvents = payload.churchEvents;
       saveChurchData();
+      if (payload.companion) window.OrthodoxStore.replace(payload.companion);
       applySettingsToControls();
       renderAll();
       showToast("Local data restored.");
@@ -1220,16 +1227,17 @@
         const worker = registration.installing;
         worker?.addEventListener("statechange", () => {
           if (worker.state === "installed" && navigator.serviceWorker.controller) {
-            showToast("A new version is ready. Refreshing…");
+            showToast("A new version is ready. It will load on your next visit.");
             worker.postMessage({ type: "SKIP_WAITING" });
           }
         });
       });
       let refreshing = false;
+      const wasControlled = !!navigator.serviceWorker.controller;
       navigator.serviceWorker.addEventListener("controllerchange", () => {
-        if (refreshing) return;
+        if (refreshing || !wasControlled) return;
         refreshing = true;
-        window.location.reload();
+        showToast("New version installed. Reload when you have saved your work.");
       });
       $("#checkUpdate").addEventListener("click", async () => {
         await registration.update();
@@ -1343,6 +1351,7 @@
     try {
       await loadData();
       renderAll();
+      document.dispatchEvent(new CustomEvent("orthodox:ready", { detail: { prayers: state.prayers } }));
       registerServiceWorker();
     } catch (error) {
       console.error(error);
@@ -1353,5 +1362,6 @@
     }
   }
 
+  document.addEventListener("orthodox:navigate", event => switchView(event.detail));
   document.addEventListener("DOMContentLoaded", init);
 })();

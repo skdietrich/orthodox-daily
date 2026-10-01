@@ -1,10 +1,15 @@
-const CACHE_NAME = "orthodox-daily-v1.3.0";
+const CACHE_NAME = "orthodox-daily-v2.0.0";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./404.html",
   "./manifest.webmanifest",
   "./css/styles.css",
+  "./css/companion.css",
+  "./js/storage.js",
+  "./js/companion.js",
+  "./assets/photos/meteora.jpg",
+  "./assets/photos/athos.jpg",
   "./js/astronomy.js",
   "./js/app.js",
   "./assets/cross.svg",
@@ -74,7 +79,7 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))
+      .then(keys => Promise.all(keys.filter(key => key.startsWith("orthodox-daily-") && key !== CACHE_NAME).map(key => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
@@ -83,25 +88,20 @@ self.addEventListener("message", event => {
   if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
 
+// Cache-first versioned shell: one complete release, no mixed old/new JavaScript.
+// The browser checks service-worker.js for updates outside this handler.
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
-  if (url.origin !== self.location.origin) return;
-
-  event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        if (response && response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-        }
-        return response;
-      })
-      .catch(async () => {
-        const cached = await caches.match(event.request, { ignoreSearch: true });
-        if (cached) return cached;
-        if (event.request.mode === "navigate") return caches.match("./index.html");
-        throw new Error("Offline resource unavailable");
-      })
-  );
+  if (url.origin !== self.location.origin || !url.href.startsWith(self.registration.scope)) return;
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(event.request, { ignoreSearch: true });
+    if (cached) return cached;
+    try { return await fetch(event.request); }
+    catch (error) {
+      if (event.request.mode === "navigate") return await cache.match("./index.html");
+      return new Response("Offline resource unavailable", {status: 503});
+    }
+  })());
 });

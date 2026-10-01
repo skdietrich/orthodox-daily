@@ -26,6 +26,11 @@ REQUIRED = [
     "manifest.webmanifest",
     "service-worker.js",
     "css/styles.css",
+    "css/companion.css",
+    "js/companion.js",
+    "js/storage.js",
+    "assets/photos/meteora.jpg",
+    "assets/photos/athos.jpg",
     "js/app.js",
     "js/astronomy.js",
     "assets/cross.svg",
@@ -201,7 +206,7 @@ def check_icon_preview() -> tuple[int, int, int]:
 
 def check_local_church_ui() -> int:
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    js = (ROOT / "js/app.js").read_text(encoding="utf-8")
+    js = "\n".join((ROOT / path).read_text(encoding="utf-8") for path in ["js/app.js", "js/companion.js"])
     required_ids = {
         "todayChurchSummary", "churchForm", "churchName", "churchJurisdiction", "churchCity",
         "churchWebsite", "churchCalendarUrl", "churchNotes", "churchPrimary", "churchList",
@@ -217,17 +222,17 @@ def check_local_church_ui() -> int:
     for feature in ("renderChurches", "renderTodayChurches", "importIcsFile", "exportIcsCalendar", "renderIcons"):
         if f"function {feature}" not in js:
             fail(f"Required interface function is missing: {feature}")
-    if 'data-view="churches"' not in html or 'data-view-panel="churches"' not in html:
+    if 'data-open-view="churches"' not in html or 'data-view-panel="churches"' not in html:
         fail("The Local Churches navigation or view panel is not visible")
-    if 'data-view="icons"' not in html or 'data-view-panel="icons"' not in html:
+    if 'data-open-view="icons"' not in html or 'data-view-panel="icons"' not in html:
         fail("The Holy Icons navigation or view panel is not visible")
     return len(required_ids)
 
 def check_dom_bindings() -> int:
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    js = (ROOT / "js/app.js").read_text(encoding="utf-8")
+    js = "\n".join((ROOT / path).read_text(encoding="utf-8") for path in ["js/app.js", "js/companion.js"])
     html_ids = set(re.findall(r'id="([^"]+)"', html))
-    selector_ids = set(re.findall(r'\$\("#([A-Za-z0-9_-]+)"\)', js))
+    selector_ids = set(re.findall(r"""\$\(["']#([A-Za-z0-9_-]+)["']\)""", js))
     missing = sorted(selector_ids - html_ids)
     if missing:
         fail("JavaScript references missing HTML IDs: " + ", ".join(missing))
