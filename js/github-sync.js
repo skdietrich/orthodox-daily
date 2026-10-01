@@ -6,6 +6,7 @@
   'use strict';
 
   const CONFIG_KEY = 'orthodoxDailyGithubSyncV1';
+  const DEFAULT_REPO = 'skdietrich/-orthodox-daily-data';
   const PERSONAL_KEYS = [
     'orthodoxDailyJournal',
     'orthodoxDailyFavorites',
@@ -33,7 +34,7 @@
   function readConfig() {
     const raw = readJson(CONFIG_KEY, {});
     return {
-      repo: typeof raw.repo === 'string' ? raw.repo : '',
+      repo: typeof raw.repo === 'string' && raw.repo ? raw.repo : DEFAULT_REPO,
       token: typeof raw.token === 'string' ? raw.token : '',
       user: typeof raw.user === 'string' ? raw.user : '',
       active: raw.active === true
