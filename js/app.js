@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const APP_VERSION = "2.0.0";
+  const APP_VERSION = "2.1.0";
   const MIN_DATE = "2026-01-01";
   const MAX_DATE = "2030-12-31";
   const DAY_MS = 86400000;
