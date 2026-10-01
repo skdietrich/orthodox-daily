@@ -140,7 +140,8 @@
         ...(options?.headers || {})
       }
     });
-    if (response.status === 404) return {notFound: true};
+    const method = String(options?.method || 'GET').toUpperCase();
+    if (response.status === 404 && method === 'GET') return {notFound: true};
     const payload = await response.json().catch(() => ({}));
     if (!response.ok) {
       const message = payload?.message || ('GitHub returned HTTP ' + response.status + '.');
