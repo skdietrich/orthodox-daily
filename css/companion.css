@@ -15,3 +15,5 @@ body{background:var(--paper);color:var(--ink)}
 .hero .date-controls .button{background:#f2eedf;color:#193e33}
 .hero .date-controls .button.quiet{color:#f4f1e5;background:transparent;border-color:#97ac9f}
 .hero .date-controls .button:disabled{opacity:.5}
+
+.cloud-account-card{grid-column:1/-1}.cloud-account-card .stack-form{max-width:720px}.cloud-account-card input{width:100%;border:1px solid var(--line);padding:12px;border-radius:9px;background:#fffef9;color:var(--ink);font:inherit;font-size:14px}.cloud-account-card .soft-rule{border:0;border-top:1px solid var(--line);margin:24px 0}.sync-status{padding:11px 13px;border-radius:9px;background:#edf0e8;font-size:12px;line-height:1.55}.sync-status[data-kind="ok"]{background:#e7eee7}.sync-status[data-kind="error"]{background:#f3e7e3}.cloud-account-card button:disabled{opacity:.55;cursor:wait}@media(max-width:560px){.cloud-account-card .button-row{align-items:stretch}.cloud-account-card .button-row .button{flex:1 1 100%}}
