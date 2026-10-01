@@ -77,7 +77,7 @@
         <label>What am I placing in God’s hands?<textarea id="surrenderText" rows="3" maxlength="6000" placeholder="Something I don’t have to carry alone…"></textarea></label>
         <label>One act of kindness for tomorrow<textarea id="kindnessText" rows="2" maxlength="3000" placeholder="One small, possible thing…"></textarea></label>
         <div class="button-row"><button class="button" type="submit">Save reflection</button><button class="button quiet" type="button" id="deleteReflection">Delete this entry</button></div>
-      </form><p class="fine-print">Stored in this browser, without encryption or cloud sync. Anyone using this browser profile may see it. Export a backup before clearing site data.</p></article>
+      </form><p class="fine-print">Saved on this device first. If GitHub server save is connected in Prayer Tools, this reflection is also backed up to your private data repository.</p></article>
       <aside><article class="card"><h3>Past reflections</h3><div id="reflectionHistory"></div></article><article class="card intention-card"><p class="eyebrow">Remember in prayer</p><h3>My prayer intentions</h3><form id="intentionForm" class="stack-form"><label>A name or intention<input id="intentionText" required maxlength="180" placeholder="For someone I love…"></label><button class="button" type="submit">Add intention</button><button id="cancelIntentionEdit" class="button quiet" type="button" hidden>Cancel editing</button></form><div id="intentionList"></div></article></aside></div>
     </section>
     <section class="view companion" data-view-panel="rule" aria-labelledby="ruleTitle">
@@ -275,7 +275,7 @@
     </section>
 
     <section class="view" data-view-panel="tools" aria-labelledby="toolsHeading">
-      <div class="section-intro"><p class="eyebrow">Private and local</p><h2 id="toolsHeading">Prayer Tools</h2><p>The timer, favorites, settings, and journal remain on this device unless you export them.</p></div>
+      <div class="section-intro"><p class="eyebrow">Private by default</p><h2 id="toolsHeading">Prayer Tools</h2><p>Your data stays on this device unless you export it or connect the optional GitHub server backup below.</p></div>
       <div class="tools-grid">
         <article class="card timer-card">
           <img class="candle-image" src="assets/candle.svg" alt="Stylized candle">
@@ -287,9 +287,33 @@
         </article>
         <article class="card journal-card">
           <p class="eyebrow">Private journal</p><h3 id="journalDateLabel">Reflection</h3>
-          <textarea id="journalText" rows="12" placeholder="Stored only in this browser on this device…"></textarea>
-          <div class="button-row"><button id="saveJournal" class="button" type="button">Save locally</button><button id="deleteJournal" class="button quiet danger" type="button">Delete entry</button></div>
+          <textarea id="journalText" rows="12" placeholder="Saved on this device first…"></textarea>
+          <div class="button-row"><button id="saveJournal" class="button" type="button">Save reflection</button><button id="deleteJournal" class="button quiet danger" type="button">Delete entry</button></div>
           <div class="button-row"><button id="exportData" class="button quiet" type="button">Export my data</button><label class="button quiet file-button">Import data<input id="importData" type="file" accept="application/json"></label></div>
+        </article>
+        <article class="card cloud-account-card">
+          <p class="eyebrow">Optional server save</p><h3>GitHub account & backup</h3>
+          <p id="githubSyncStatus" class="sync-status" role="status">Local-only mode.</p>
+          <form id="githubSyncConfig" class="stack-form">
+            <label>Private data repository<input id="githubDataRepo" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="skdietrich/orthodox-daily-data"></label>
+            <label>GitHub access token<input id="githubDataToken" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="github_pat_…"></label>
+            <button class="button quiet" type="submit" data-github-sync-action>Save GitHub connection</button>
+          </form>
+          <hr class="soft-rule">
+          <div class="stack-form">
+            <label>Username<input id="githubUsername" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="32" placeholder="your-name"></label>
+            <label>Password<input id="githubPassword" type="password" autocomplete="current-password" minlength="4" placeholder="4+ characters"></label>
+            <div id="githubSignedOutTools" class="button-row">
+              <button id="githubCreateAccount" class="button" type="button" data-github-sync-action>Create account</button>
+              <button id="githubLogin" class="button quiet" type="button" data-github-sync-action>Sign in</button>
+            </div>
+            <div id="githubSignedInTools" class="button-row" hidden>
+              <button id="githubPushNow" class="button" type="button" data-github-sync-action>Save to GitHub now</button>
+              <button id="githubPullNow" class="button quiet" type="button" data-github-sync-action>Load GitHub copy</button>
+              <button id="githubLogout" class="button quiet" type="button" data-github-sync-action>Sign out</button>
+            </div>
+          </div>
+          <p class="fine-print">Use a separate <strong>private</strong> GitHub repository. The token is kept in this browser only and is not included in exported app data. This is intentionally simple account separation, not high-security authentication.</p>
         </article>
       </div>
     </section>
@@ -301,7 +325,7 @@
         <article class="card prose"><h3>Important limits</h3><p>Orthodox jurisdictions differ in calendar use, local saints, fasting practice, and lectionary details. Follow your priest and official parish calendar.</p></article>
         <article class="card prose"><h3>Sources</h3><p>Calendar and biographical summaries are concise educational references. Approximate dates are marked, and uncertain traditions are described cautiously. Full notes are in the repository.</p></article>
         <article class="card prose"><h3>Install on your phone</h3><p>On iPhone, open this site in Safari, choose Share, then Add to Home Screen. On Android, open the browser menu and choose Install app or Add to Home screen. Allow the first visit to finish loading before going offline.</p></article><article class="card prose"><h3>Updates</h3><p>The service worker checks for newer published files. A new deployment updates the offline cache. Save your work and reload when an update is available.</p><button id="checkUpdate" class="button quiet" type="button">Check for update</button></article>
-        <article class="card prose"><h3>Photographs</h3><p>Meteora: <a href="https://commons.wikimedia.org/wiki/File:Rousanou_Monastery_Meteora_Landscape.jpg" target="_blank" rel="noopener">Dimitris Eleftheriou</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Mount Athos: <a href="https://commons.wikimedia.org/wiki/File:Mount_Athos-_Monastery_Stavronikita,_wood_and_sea_(from_distance).jpg" target="_blank" rel="noopener">malenki</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Resized and compressed; displayed with crops and overlays. Image derivatives retain their respective licenses. Existing icon credits are shown in the Holy Icons library.</p></article><article class="card prose"><h3>Personal entries</h3><p>Your display name, reflections, intentions, and prayer rule are saved locally. No login, cloud sync, analytics, or shared community is enabled. Backups include personal text; keep them somewhere private.</p></article><article class="card prose"><h3>Build</h3><p>Version <strong id="appVersion">—</strong></p><p>Local data window: January 1, 2026–December 31, 2030.</p></article>
+        <article class="card prose"><h3>Photographs</h3><p>Meteora: <a href="https://commons.wikimedia.org/wiki/File:Rousanou_Monastery_Meteora_Landscape.jpg" target="_blank" rel="noopener">Dimitris Eleftheriou</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Mount Athos: <a href="https://commons.wikimedia.org/wiki/File:Mount_Athos-_Monastery_Stavronikita,_wood_and_sea_(from_distance).jpg" target="_blank" rel="noopener">malenki</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Resized and compressed; displayed with crops and overlays. Image derivatives retain their respective licenses. Existing icon credits are shown in the Holy Icons library.</p></article><article class="card prose"><h3>Personal entries</h3><p>Your display name, reflections, intentions, prayer rule, and journal are saved locally first. Optional GitHub server save can back personal data up to a separate private repository. No analytics, advertising, or shared community is enabled.</p></article><article class="card prose"><h3>Build</h3><p>Version <strong id="appVersion">—</strong></p><p>Local data window: January 1, 2026–December 31, 2030.</p></article>
       </div>
     </section>
   </main>
@@ -323,6 +347,7 @@
   <noscript><div class="noscript">Orthodox Daily requires JavaScript for its local calendar and archive.</div></noscript>
   <script src="js/astronomy.js"></script>
   <script src="js/storage.js"></script>
+  <script src="js/github-sync.js"></script>
   <script src="js/app.js"></script>
   <script src="js/companion.js"></script>
 </body>
